@@ -153,11 +153,13 @@ margin-top: 20px;
     position: relative; /* Устанавливаем относительное позиционирование для родительского элемента */
     box-sizing: border-box;
     flex: 1 1 calc(30% / 2 - 1rem); /* Используем относительные единицы для адаптивности */
-    color: #EDEAE5;
+
     padding: 1rem; /* Внутренние отступы для адаптивности */
     border-radius: 1rem; /* Скругление углов */
-    background-color: #5a7071;
+
     margin: 0.5rem; /* Отступы между элементами */
+        color: #EDEAE5;
+         background-color: #5a7071;
     transition: color 500ms ease;
     transition: transform 0.6s ease;
     max-width:310px;
@@ -213,4 +215,50 @@ margin-top: 20px;
     bottom: 0.5rem; /* Расстояние от нижнего края родительского элемента */
     right: 0.5rem; /* Расстояние от правого края родительского элемента */
     margin: 0; /* Убираем внешние отступы */
+}
+
+.cartform {
+    width: 50%;
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.cartform input,
+.cartform button {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+.cartform input:focus,
+.cartform button:focus {
+    outline: none;
+    border-color: #5a7071;
+}
+
+.cartform button {
+    color: #EDEAE5;
+    background-color: #5a7071;
+    transition: transform 0.6s ease;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cartform button:hover {
+        background-color:#536769;
+        transform: translateY(-5px);
+}
+
+.containerform {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    box-sizing: border-box;
 }
