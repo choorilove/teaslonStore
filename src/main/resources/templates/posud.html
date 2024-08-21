@@ -9,6 +9,11 @@
 <div th:replace="~{layouts/header :: header}"></div>
 
 <main>
+    <div class="banner">
+        <h2>Чайний Слон</h2>
+        <p>Не ви обираєте чайник - чайник обирає Вас</p>
+    </div>
+
     <div class="itemsEmpty" th:if="${itemsByCategory.isEmpty()}">
         <p>Empty:(</p>
     </div>
