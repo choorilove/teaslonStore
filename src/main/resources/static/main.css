@@ -18,7 +18,10 @@ header nav a:hover {
     color:#004d40;
     transform: translateY(-5px);
 }
-
+.emptycarturl:hover{
+    color:#004d40;
+    transform: translateY(-5px);
+}
 
 header {
     font-weight: 400;
@@ -48,6 +51,17 @@ header {
 }
 
 header nav a{
+    transition: color 500ms ease;
+    transition: transform 0.6s ease;
+    display: inline-block;
+    text-decoration: none;
+    color:#026670;
+    font-weight: 500;
+    margin-left:15px;
+}
+
+.emptycarturl{
+    margin-top: 20px;
     transition: color 500ms ease;
     transition: transform 0.6s ease;
     display: inline-block;

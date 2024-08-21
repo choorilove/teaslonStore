@@ -12,6 +12,25 @@
         <h2>Чайний Слон</h2>
         <p>Оформлюй швидше :)</p>
     </div>
+
+
+    <div class="itemsEmpty" th:if="${items.isEmpty()}">
+        <p>Ваш кошик порожній, але ви завжди можете це виправити :)</p>
+        <a class="emptycarturl" href="/tea" >Обрати чай</a>
+        <a class="emptycarturl" href="/posud">Обрати посуд</a>
+    </div>
+    <div class="itemsEmpty" th:if="${!items.isEmpty()}">
+        <div class="items">
+            <div class="item" th:each="el : ${items}" >
+                <a class="iturl" th:href="'/item' + ${el.id}">
+                    <img th:src="@{${el.image1}}" th:alt="${el.title}">
+                    <h3 th:text="${el.title}"/>
+                    <span th:text="${el.price}"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+
     <div class="containerform">
         <form th:action="@{/cart}" method="post" class="cartform">
             <input type="text" name="customer_name" placeholder="Ім'я" required>
@@ -20,10 +39,11 @@
             <input type="email" name="customer_email" placeholder="Електронна пошта" required>
             <input type="text" name="city" placeholder="Ваше місто" required>
             <input type="text" name="post_dep" placeholder="Номер відділення НП" required>
-            <input type="text" name="description" placeholder="Ваш коментар">
+            <input type="text" name="description" placeholder="Ваш нік в телеграм(не обов'язково)">
             <button type="submit" class="addorder">Оформити замовлення</button>
         </form>
     </div>
+
 
 </main>
 <div th:replace="layouts/footer :: footer"></div>

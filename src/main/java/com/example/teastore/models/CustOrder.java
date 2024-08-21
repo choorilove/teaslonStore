@@ -6,14 +6,14 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class Order {
+public class CustOrder {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private String id_item, description = null, customer_number,customer_email, customer_name, customer_surname,city,post_dep;
+    private String id_item, description, customer_number,customer_email, customer_name, customer_surname,city,post_dep;
     private float price;
 
-    public Order(String id_item, String description, String customer_number, String customer_email, String customer_name, String customer_surname, String city, String post_dep, float price) {
+    public CustOrder(String id_item, String description, String customer_number, String customer_email, String customer_name, String customer_surname, String city, String post_dep, float price) {
         this.id_item = id_item;
         this.description = description;
         this.customer_number = customer_number;
@@ -25,7 +25,7 @@ public class Order {
         this.price = price;
     }
 
-    public Order(){}
+    public CustOrder(){}
 
     public String getCustomer_email() {
         return customer_email;
