@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${selectedKey}">Посуд</title>
+    <link rel="stylesheet" th:href="@{main.css}">
+    <link rel="icon" href="https://img.freepik.com/free-vector/orange-background-with-elephant-for-indian-republic-day_23-2147588186.jpg" type="image/jpeg">
+</head>
+<body>
+<div th:replace="~{layouts/header :: header}"></div>
+
+<main>
+    <div class="banner">
+        <h2>Чайний Слон</h2>
+        <p>Не ви обираєте чайник - чайник обирає Вас</p>
+    </div>
+
+    <div class="itemsEmpty" th:if="${itemsByCategory.isEmpty()}">
+        <p>Empty:(</p>
+    </div>
+    <div class="itemsEmpty" th:if="${!itemsByCategory.isEmpty()}">
+        <div th:each="entry : ${itemsByCategory}">
+            <div th:if="${entry.key.equals(selectedKey)}">
+                <h2 class="kinds" th:text="${entry.key}" > </h2>
+                <div class="items">
+                    <div class="item" th:each="el : ${entry.value}" >
+                        <a class="iturl" th:href="'/item' + ${el.id}">
+                            <img th:src="@{${el.image1}}" th:alt="${el.title}">
+                            <h3 th:text="${el.title}"/>
+                            <span th:text="${el.price}"></span>
+                        </a>
+                        <form th:action="@{/cart/add}" method="post" class="addtocartform">
+                            <input type="hidden" name="itemId" th:value="${el.id}">
+                            <button type="submit" class="addtocart">Додати у кошик</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<div th:replace="~{layouts/footer :: footer}"></div>
+</body>
+</html>
