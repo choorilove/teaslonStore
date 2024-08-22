@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Посуд</title>
     <link rel="stylesheet" th:href="@{main.css}">
+    <link rel="icon" href="https://img.freepik.com/free-vector/orange-background-with-elephant-for-indian-republic-day_23-2147588186.jpg" type="image/jpeg">
 </head>
 <body>
 <div th:replace="~{layouts/header :: header}"></div>
@@ -23,7 +24,7 @@
             <h2 class="kinds" th:text="${entry.key}" > </h2>
             <div class="items">
                 <div class="item" th:each="el : ${entry.value}" >
-                    <a class="iturl" th:href="'/item' + ${el.id}">
+                    <a class="iturl" th:href="'/item/' + ${el.id}">
                         <img th:src="@{${el.image1}}" th:alt="${el.title}">
                         <h3 th:text="${el.title}"/>
                         <span th:text="${el.price}"></span>

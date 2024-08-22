@@ -25,19 +25,27 @@ public class CartControllerMain {
         if (cart == null) {
             cart = new ArrayList<>();
         }
-        List<Item> items = new ArrayList<>();
+        float totalAmount = 0.0F;
+                List<Item> items = new ArrayList<>();
         for (String id : cart) {
             Long itemId = Long.parseLong(id);
             Optional<Item> itemOptional = itemRepository.findById(itemId);
-            itemOptional.ifPresent(items::add);
+            if (itemOptional.isPresent()) {
+                Item item = itemOptional.get();
+                items.add(item);
+                totalAmount += item.getPrice();
+            }
         }
         if (cart.isEmpty()) {
             items.clear();
         }
+
         session.setMaxInactiveInterval(1800);
+        model.addAttribute("totalAmount", totalAmount);
         model.addAttribute("items", items);
         return "cart";
     }
+
 
 
 

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Головна</title>
     <link rel="stylesheet" th:href="@{main.css}">
+    <link rel="icon" href="https://img.freepik.com/free-vector/orange-background-with-elephant-for-indian-republic-day_23-2147588186.jpg" type="image/jpeg">
 </head>
 <body>
 <div th:replace="~{layouts/header :: header}"></div>
@@ -19,6 +20,7 @@
             <a href="https://www.instagram.com/tea.slon.kharkiv?igsh=MWEzNXd3OWRybnkwag==" class="carousel-item"><img src="/images/images1.jpg" alt="Image 3"></a>
         </div>
     </div>
+
     <div class="itemsEmpty" th:if="${itemsByCategory.isEmpty()}">
         <p>Empty:(</p>
     </div>
@@ -28,7 +30,7 @@
                 <h2 class="kinds" th:text="${entry.key}" > </h2>
                 <div class="items">
                     <div class="itemsell" th:each="el : ${entry.value}" >
-                        <a class="iturl" th:href="'/item' + ${el.id}">
+                        <a class="iturl" th:href="'/item/' + ${el.id}">
                             <img th:src="@{${el.image1}}" th:alt="${el.title}">
                             <h3 th:text="${el.title}"/>
                             <span th:text="${el.price}"></span>

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Кошик</title>
     <link rel="stylesheet" th:href="@{main.css}">
+    <link rel="icon" href="https://img.freepik.com/free-vector/orange-background-with-elephant-for-indian-republic-day_23-2147588186.jpg" type="image/jpeg">
 </head>
 <body class="cartbody">
 <div th:replace="layouts/header :: header"></div>
@@ -22,17 +23,20 @@
     <div class="itemsEmpty" th:if="${!items.isEmpty()}">
         <div class="items">
             <div class="item" th:each="el : ${items}" >
-                <a class="iturl" th:href="'/item' + ${el.id}">
+                <a class="iturl" th:href="'/item/' + ${el.id}">
                     <img th:src="@{${el.image1}}" th:alt="${el.title}">
                     <h3 th:text="${el.title}"/>
                     <span th:text="${el.price}"></span>
                 </a>
             </div>
         </div>
+        <div class="total-amount">
+            <h3>Загальна сума: <span th:text="${totalAmount}">0.00</span></h3>
+        </div>
     </div>
 
     <div class="containerform">
-        <form th:action="@{/cart}" method="post" class="cartform">
+        <form th:action="@{/cart/checkout}" method="post" class="cartform">
             <input type="text" name="customer_name" placeholder="Ім'я" required>
             <input type="text" name="customer_surname" placeholder="Прізвище" required>
             <input type="tel" name="customer_number" placeholder="Номер телефону" required>
