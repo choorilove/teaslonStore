@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 import java.util.Map;
@@ -31,4 +32,14 @@ public class MainController {
     public String about() {
         return "about-us";
     }
+
+
+    @GetMapping("/item/{id}")
+    public String teaKind(@PathVariable("id") String id, Model model) {
+        Item item = itemRepository.findById(Long.parseLong(id));
+        model.addAttribute("current_item",item);
+        model.addAttribute("itemId", id);
+        return "item-view";
+    }
+
 }

@@ -185,6 +185,9 @@ margin-top: 20px;
      color:#EDEAE5;
 }
 
+.iturl img{
+    width:100%;
+}
 
 .carousel {
     position: relative;
@@ -278,3 +281,69 @@ margin-top: 20px;
     padding: 1rem;
     box-sizing: border-box;
 }
+
+
+
+.icarousel {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.icarousel-images {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.icarousel-item {
+    flex: 0 0 100%;
+    box-sizing: border-box;
+}
+
+.icarousel-item img {
+    margin-left:30%;
+    margin-right:30%;
+    width: 40%;
+    display: block;
+    border-radius: 10px;
+}
+
+.aboutItem{
+margin-top:5%;
+margin-left:15%;
+margin-right:25%;
+width:60%;
+}
+
+.addtocart-container {
+    display: flex;
+    justify-content: center; /* Центрирует форму по горизонтали */
+    align-items: center; /* Центрирует форму по вертикали */
+    height: 100px; /* Устанавливает высоту контейнера, чтобы кнопка располагалась правильно */
+    margin-top: 20px; /* Расстояние от элементов выше */
+}
+
+.addtocartForm {
+    position: relative; /* Обеспечивает, что кнопка будет располагаться относительно формы */
+    width: 10%; /* Ширина формы равна ширине контейнера */
+}
+
+.addtocartItem {
+    width: 100%; /* Занимает всю ширину формы */
+    background-color: #026670; /* Цвет фона кнопки */
+    color: #EDEAE5; /* Цвет текста кнопки */
+    border: none; /* Убираем границы кнопки */
+    padding: 0.5rem 1rem; /* Внутренние отступы кнопки */
+    border-radius: 0.5rem; /* Скругление углов кнопки */
+    cursor: pointer; /* Изменяем указатель на курсор руки */
+    transition: background-color 0.3s ease; /* Плавное изменение фона при наведении */
+    box-sizing: border-box; /* Включает отступы и границы в общую ширину и высоту */
+}
+
+.addtocartItem:hover {
+    background-color: #004d40; /* Цвет фона при наведении */
+}
+
+
+

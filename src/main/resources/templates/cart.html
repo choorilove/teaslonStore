@@ -23,7 +23,7 @@
     <div class="itemsEmpty" th:if="${!items.isEmpty()}">
         <div class="items">
             <div class="item" th:each="el : ${items}" >
-                <a class="iturl" th:href="'/item' + ${el.id}">
+                <a class="iturl" th:href="'/item/' + ${el.id}">
                     <img th:src="@{${el.image1}}" th:alt="${el.title}">
                     <h3 th:text="${el.title}"/>
                     <span th:text="${el.price}"></span>
