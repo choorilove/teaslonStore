@@ -59,8 +59,10 @@ public class CartController {
                 price+= item.getPrice();
                 id_items = id + " , " + id_items;
             }
+
             CustOrder ordr = new CustOrder(id_items,description,customer_number,customer_email,customer_name,customer_surname,city,post_dep,price);
             custOrderRepository.save(ordr);
+            session.invalidate();
             return "redirect:/";
         }
 
