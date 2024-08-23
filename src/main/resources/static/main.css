@@ -141,13 +141,11 @@ margin-top: 20px;
 }
 
 .items{
-    gap: 20px;
     display: flex;
     flex-wrap: wrap;
+    gap: 20px; /* Отступы между элементами */
+    justify-content: center; /* Центрирование товаров */
     margin-bottom: 20px;
-    margin-top:10px;
-    margin-left:20px;
-    margin-right:20px;
 }
 .item:hover{
     background-color:#536769;
@@ -175,19 +173,29 @@ margin-top: 20px;
         max-width:310px;
 }
 .item{
-    position: relative; /* Устанавливаем относительное позиционирование для родительского элемента */
+    position: relative;
+    flex: 0 1 calc(50% - 20px); /* 50% ширины с учетом отступов */
     box-sizing: border-box;
-    flex: 1 1 calc(30% / 2 - 1rem); /* Используем относительные единицы для адаптивности */
-
-    padding: 1rem; /* Внутренние отступы для адаптивности */
-    border-radius: 1rem; /* Скругление углов */
-
-    margin: 0.5rem; /* Отступы между элементами */
-        color: #EDEAE5;
-         background-color: #5a7071;
-    transition: color 500ms ease;
+    background-color: #5a7071;
+    padding: 20px;
+    border-radius: 10px;
     transition: transform 0.6s ease;
-    max-width:310px;
+    max-width: 100%; /* Гарантия, что товар займет всю доступную ширину */
+    text-align: center; /* Центрирование содержимого */
+}
+.item img {
+    width: 100%; /* Изображение занимает всю ширину товара */
+    height: auto;
+    border-radius: 10px;
+}
+.item h3 {
+    margin-top: 10px;
+    font-size: 1.5rem; /* Увеличение размера заголовка */
+}
+
+.item span {
+    font-size: 1.2rem; /* Размер текста для цены */
+    color: #EDEAE5;
 }
 
 .iturl{
@@ -195,9 +203,7 @@ margin-top: 20px;
      color:#EDEAE5;
 }
 
-.iturl img{
-    width:275px;
-}
+
 
 .carousel {
     position: relative;
@@ -225,24 +231,27 @@ margin-top: 20px;
 }
 
 .addtocart {
-    background-color: #026670; /* Цвет фона кнопки */
-    color: #EDEAE5; /* Цвет текста кнопки */
-    border: none; /* Убираем границы кнопки */
-    padding: 0.5rem 1rem; /* Внутренние отступы кнопки */
-    border-radius: 0.5rem; /* Скругление углов кнопки */
-    cursor: pointer; /* Изменяем указатель на курсор руки */
-    transition: background-color 0.3s ease; /* Плавное изменение фона при наведении */
+    width: 100%; /* Кнопка занимает всю ширину формы */
+    padding: 10px;
+    background-color: #026670;
+    color: #EDEAE5;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .addtocart:hover {
-    background-color: #026670;
+    background-color: #004d40;
 }
 
 .addtocartform{
-    position: absolute; /* Абсолютное позиционирование для формы */
-    bottom: 0.5rem; /* Расстояние от нижнего края родительского элемента */
-    right: 0.5rem; /* Расстояние от правого края родительского элемента */
-    margin: 0; /* Убираем внешние отступы */
+    position: relative; /* Относительное позиционирование */
+    bottom: 0; /* Расположить форму снизу */
+    left: 0; /* Слева */
+    width: 100%; /* Сделать форму по ширине элемента */
+    text-align: center; /* Центрировать содержимое формы */
+    margin-top: 10px; /* Отступ сверху */
 }
 
 .cartform {
