@@ -8,6 +8,7 @@
 </head>
 <body class="cartbody">
 <div th:replace="layouts/header :: header"></div>
+<div class="page-wrapper">
 <main>
     <div class="banner">
         <h2>Чайний Слон</h2>
@@ -47,6 +48,8 @@
             <button type="submit" class="addorder">Оформити замовлення</button>
         </form>
     </div>
+
+</main>
     <section class="contact-info">
         <div class="contact-container">
             <h2>Контактна інформація</h2>
@@ -56,7 +59,7 @@
             <p><strong>Години роботи:</strong> Пн-Нд: 9:00 - 18:00</p>
         </div>
     </section>
-</main>
 <div th:replace="layouts/footer :: footer"></div>
+</div>
 </body>
 </html>
