@@ -6,6 +6,7 @@
 }
 main {
     min-height: calc(100vh - 70px); /* Учитываем высоту футера */
+    flex-grow: 1;
 }
 
 body {
@@ -381,8 +382,9 @@ width:60%;
     padding: 20px;
     border-radius: 10px;
     text-align: center;
-    margin-top: 30px;
+
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+     margin-top: auto; /* Прижимаем к низу */
 }
 
 .contact-container h2 {
@@ -402,3 +404,8 @@ width:60%;
 
 
 
+.page-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Высота на весь экран */
+}
