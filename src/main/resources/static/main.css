@@ -4,12 +4,31 @@
     margin:0;
     padding:0;
 }
-body{
+main {
+    min-height: calc(100vh - 70px); /* Учитываем высоту футера */
+}
 
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
     background-color: #EDEAE5;
     font-family: 'Montserrat', sans-serif;
     font-weight: 300;
+    display: flex;
+    flex-direction: column;
 }
+
+footer {
+    width: 100%;
+    padding-top: 50px;
+    text-align: center;
+    height: 70px;
+    background-color: #3e4e50;
+    color: #EDEAE5;
+    margin-top: auto; /* Автоматическое размещение футера внизу */
+}
+
 
 img{
  border-radius: 20px;
@@ -105,16 +124,7 @@ img.bnr{
     background-color: #EDEAE5;
     color: #5a7071 ;
 }
-footer {
-    float: left;
-    width:100%;
-    margin-top: 60px;
-    padding-top: 50px;
-    text-align:center;
-    height: 70px;
-    background-color: #3e4e50;
-    color: #EDEAE5;
-}
+
 .itemsEmpty{
     margin-bottom: 50px;
     margin-left: 50px;
