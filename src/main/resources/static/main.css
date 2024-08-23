@@ -141,11 +141,18 @@ margin-top: 20px;
 }
 
 .items{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px; /* Отступы между элементами */
-    justify-content: center; /* Центрирование товаров */
-    margin-bottom: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px; /* Отступы между элементами */
+        justify-content: center; /* Центрирование товаров */
+        margin-right: 30px ; /* Центрирование контейнера и отступы сверху и снизу */
+        margin-left:10px;
+        margin-top:auto;
+        margin-bottom:auto;
+        padding-left: 10px; /* Добавление одинакового отступа слева и справа */
+        padding-right: 30px; /* Отступ справа */
+        max-width: calc(100% - 40px); /* Гарантирует, что контейнер не выйдет за пределы страницы */
+        box-sizing: border-box;
 }
 .item:hover{
     background-color:#536769;
