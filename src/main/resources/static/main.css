@@ -410,7 +410,7 @@ width:60%;
     min-height: 100vh; /* Высота на весь экран */
 }
 
-.notfull{
+.notfull main{
  flex-grow: 1;
- min-height: calc(100vh-70px);
+ min-height: calc(100vh);
 }
