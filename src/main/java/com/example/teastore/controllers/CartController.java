@@ -63,7 +63,7 @@ public class CartController {
             CustOrder ordr = new CustOrder(id_items,description,customer_number,customer_email,customer_name,customer_surname,city,post_dep,price);
             custOrderRepository.save(ordr);
             session.invalidate();
-            return "redirect:/";
+            return "redirect:/thankyou";
         }
 
     }

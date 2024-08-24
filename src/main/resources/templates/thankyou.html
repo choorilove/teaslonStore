@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Про Нас</title>
+    <link rel="stylesheet" th:href="@{/main.css}">
+    <link rel="icon" href="https://img.freepik.com/free-vector/orange-background-with-elephant-for-indian-republic-day_23-2147588186.jpg" type="image/jpeg">
+</head>
+<body>
+<div th:replace="layouts/header :: header"></div>
+<main>
+    <div class="banner">
+        <h2>Чайний Слон</h2>
+        <p>Завітай до мене :)</p>
+    </div>
+    <div class="banner1">
+        <h2>Дуже дякуємо за ваше замовлення!</h2>
+        <h2>Ми скоро Вам напишемо для підтвердження!</h2>
+        <h2 class="about">
+            А ви поки можете повернутись на <a href="/">Головну</a> або до <a href="/cart">Кошика</a> :)
+        </h2>
+    </div>
+    <section class="contact-info">
+        <div class="contact-container">
+            <h2>Контактна інформація</h2>
+            <p><strong>Телефон:</strong> +380 50 402 46 30</p>
+            <p><strong>Email:</strong> info@yourteashop.com</p>
+            <p><strong>Адреса:</strong> Сумський Ринок, місто-Герой Харків</p>
+            <p><strong>Години роботи:</strong> Пн-Нд: 9:00 - 18:00</p>
+        </div>
+    </section>
+</main>
+<div th:replace="layouts/footer :: footer"></div>
+
+</body>
+</html>

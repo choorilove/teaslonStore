@@ -33,6 +33,10 @@ public class MainController {
         return "about-us";
     }
 
+    @GetMapping("/thankyou")
+    public String thankyou() {
+        return "thankyou";
+    }
 
     @GetMapping("/item/{id}")
     public String teaKind(@PathVariable("id") String id, Model model) {
