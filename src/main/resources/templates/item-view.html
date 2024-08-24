@@ -24,6 +24,21 @@
     </div>
     <div class="aboutItem">
     <h2  th:text="${current_item.title}">Чайний Слон</h2>
+        <div  th:if="${!current_item.sort.equals('Посуд')}">
+            <h2>Характеристики</h2>
+            <p><strong>Вид:</strong></p><p th:text="${current_item.sort}">вид</p>
+            <p><strong>Рік виробництва:</strong></p><p th:text="${current_item.sort}">рік</p>
+            <p><strong>Походження:</strong></p><p th:text="${current_item.sort}">походження</p>
+            <p><strong>Виробник:</strong></p><p th:text="${current_item.sort}">вид</p>
+            <p><strong>Вага:</strong></p><p th:text="${current_item.sort}">вид</p>
+        </div>
+        <div  th:if="${current_item.sort.equals('Посуд')}">
+            <h2>Характеристики</h2>
+            <p><strong>Об'єм:</strong></p><p th:text="${current_item.sort}">Об'єм</p>
+            <p><strong>Рік виробництва:</strong></p><p th:text="${current_item.sort}">рік</p>
+            <p><strong>Походження:</strong></p><p th:text="${current_item.sort}">походження</p>
+            <p><strong>Вробник:</strong></p><p th:text="${current_item.sort}">вид</p>
+        </div>
     <p th:text="${current_item.description}"></p>
     </div>
     <div class="addtocart-container">
