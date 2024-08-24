@@ -5,7 +5,7 @@
     padding:0;
 }
 main {
-    min-height: calc(60vh); /* Учитываем высоту футера */
+    min-height: calc(40vh); /* Учитываем высоту футера */
     flex-grow: 1;
 }
 
