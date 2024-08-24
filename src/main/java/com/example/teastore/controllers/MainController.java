@@ -40,6 +40,11 @@ public class MainController {
 
     @GetMapping("/item/{id}")
     public String teaKind(@PathVariable("id") String id, Model model) {
+        List<Item> items = itemRepository.findAllSorted();
+        Map<String, List<Item>> itemsByCategory = items.stream()
+                .collect(Collectors.groupingBy(Item::getSort));
+
+        model.addAttribute("itemsByCategory", itemsByCategory);
         Item item = itemRepository.findById(Long.parseLong(id));
         model.addAttribute("current_item",item);
         model.addAttribute("itemId", id);
