@@ -6,6 +6,7 @@ import com.example.teastore.models.Item;
 import com.example.teastore.repo.CustOrderRepository;
 import com.example.teastore.repo.ItemRepository;
 import com.example.teastore.services.CartService;
+import com.example.teastore.services.TelegramNotificationService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -30,6 +31,9 @@ public class CartController {
 
     @Autowired
     CustOrderRepository custOrderRepository;
+
+    @Autowired
+    TelegramNotificationService telegramNotificationService;
 
     @Autowired
     ItemRepository itemRepository;
@@ -68,11 +72,15 @@ public class CartController {
                     Item item = itemRepository.findById(Long.parseLong(itemc.getItemId()));
                     price+= item.getPrice();
                     id_items = itemc.getItemId() + " , " + id_items;
-                    description = itemc.getItemId() + "-"+ itemc.getQuantity() +" ; "+ description;
+                    description = itemc.getTitle() + "-"+ itemc.getQuantity() +" ; "+ description;
                 }
 
             CustOrder ordr = new CustOrder(id_items,description,customer_number,customer_email,customer_name,customer_surname,city,post_dep,price);
             custOrderRepository.save(ordr);
+            telegramNotificationService.sendOrderNotification("Нове замовлення: " + ordr.getId() +
+                    "Ім'я: " + ordr.getCustomer_name() + " " + ordr.getCustomer_surname() +
+                    " ; Опис: " + ordr.getDescription()
+                    +" ; Сума:" + ordr.getPrice());
             session.invalidate();
             return "redirect:/thankyou";
         }
