@@ -57,17 +57,19 @@ public class CartController {
                             @RequestParam("post_dep") String post_dep,
                             @RequestParam(value = "description", defaultValue = "нема опису") String description,
                             HttpSession session){
-        List<String> cart = (List<String>) session.getAttribute("cart");
+        List<CartItem> cart = (List<CartItem>) session.getAttribute("cart");
         if (cart == null) {
             return "redirect:/cart";
         }else{
             float price = 0;
             String id_items = " ";
-            for (String id : cart) {
-                Item item = itemRepository.findById(Long.parseLong(id));
-                price+= item.getPrice();
-                id_items = id + " , " + id_items;
-            }
+            description="опис:" + description;
+                for (CartItem itemc : cart) {
+                    Item item = itemRepository.findById(Long.parseLong(itemc.getItemId()));
+                    price+= item.getPrice();
+                    id_items = itemc.getItemId() + " , " + id_items;
+                    description = itemc.getItemId() + "-"+ itemc.getQuantity() +" ; "+ description;
+                }
 
             CustOrder ordr = new CustOrder(id_items,description,customer_number,customer_email,customer_name,customer_surname,city,post_dep,price);
             custOrderRepository.save(ordr);
