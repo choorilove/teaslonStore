@@ -78,10 +78,10 @@ public class CartController {
             CustOrder ordr = new CustOrder(id_items,description,customer_number,customer_email,customer_name,customer_surname,city,post_dep,price);
             custOrderRepository.save(ordr);
             telegramNotificationService.sendOrderNotification("Нове замовлення: " + ordr.getId() +
-                    " ; Ім'я: " + ordr.getCustomer_name() + " " + ordr.getCustomer_surname() +
-                    " ; Опис: " + ordr.getDescription() +
-                    " ; Номер телефону:" + ordr.getCustomer_number()
-                    +" ; Сума:" + ordr.getPrice());
+                    " \nІм'я: " + ordr.getCustomer_name() + " " + ordr.getCustomer_surname() +
+                    " \n Опис: " + ordr.getDescription() +
+                    " \n Номер телефону:" + ordr.getCustomer_number()
+                    +" \n Сума:" + ordr.getPrice());
             session.invalidate();
             return "redirect:/thankyou";
         }
