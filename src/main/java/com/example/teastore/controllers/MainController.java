@@ -34,7 +34,13 @@ public class MainController {
     }
 
     @GetMapping("/thankyou")
-    public String thankyou() {
+    public String thankyou(Model model) {
+        List<Item> items = itemRepository.findAllSorted();
+        Map<String, List<Item>> itemsByCategory = items.stream()
+                .collect(Collectors.groupingBy(Item::getSort));
+
+        model.addAttribute("itemsByCategory", itemsByCategory);
+
         return "thankyou";
     }
 
