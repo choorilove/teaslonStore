@@ -19,6 +19,33 @@
             Але ви завжди можете повернутись на <a href="/">Головну</a> або до <a href="/cart">Кошика</a>
              </h5>
     </div>
+    <div class="itemsEmpty" th:if="${itemsByCategory.isEmpty()}">
+        <p>Empty:(</p>
+    </div>
+    <div class="itemsEmpty" th:if="${!itemsByCategory.isEmpty()}">
+        <div th:each="entry : ${itemsByCategory}">
+            <div th:if="${entry.key.equals('Акції')}">
+                <h2 class="kinds" th:text="${entry.key}" > </h2>
+                <div class="items">
+                    <div class="itemsell" th:each="el : ${entry.value}" >
+                        <a class="iturl" th:href="'/item/' + ${el.id}">
+                            <img th:src="@{${el.image1}}" th:alt="${el.title}">
+                            <h3 th:text="${el.title}"/>
+                            <span th:text="${el.price}"></span>
+                        </a>
+                        <form th:action="@{/cart/add}" method="post" class="addtocartform">
+                            <input type="hidden" name="itemId" th:value="${el.id}">
+                            <input type="hidden" name="basePrice" th:value="${el.price}">
+                            <input type="hidden" name="image" th:value="${el.image1}">
+                            <input type="hidden" name="title" th:value="${el.title}">
+                            <input type="hidden" name="quantity" value="50">
+                            <button type="submit" class="addtocart">Додати у кошик</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <section class="contact-info">
         <div class="contact-container">
             <h2>Контактна інформація</h2>
@@ -28,6 +55,7 @@
             <p><strong>Години роботи:</strong> Пн-Нд: 9:00 - 18:00</p>
         </div>
     </section>
+
 </main>
 <div th:replace="layouts/footer :: footer"></div>
 
