@@ -44,6 +44,16 @@
     <div class="addtocart-container">
         <form th:action="@{/cart/add}" method="post" class="addtocartForm">
             <input type="hidden" name="itemId" th:value="${current_item.id}">
+            <input type="hidden" name="basePrice" th:value="${current_item.price}">
+            <input type="hidden" name="image" th:value="${current_item.image1}">
+            <input type="hidden" name="title" th:value="${current_item.title}">
+            <label for="quantity"></label>
+            <select name="quantity" id="quantity">
+                <option value="25">25 грамів</option>
+                <option value="50" selected>50 грамів</option>
+                <option value="100">100 грамів</option>
+                <option value="357">357 грамів(млинчик)</option>
+            </select>
             <button type="submit" class="addtocartItem">Додати у кошик</button>
         </form>
     </div>

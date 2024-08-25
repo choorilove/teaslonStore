@@ -1,5 +1,6 @@
 package com.example.teastore.controllers;
 
+import com.example.teastore.models.CartItem;
 import com.example.teastore.models.CustOrder;
 import com.example.teastore.models.Item;
 import com.example.teastore.repo.CustOrderRepository;
@@ -34,8 +35,16 @@ public class CartController {
     ItemRepository itemRepository;
 
     @PostMapping("/add")
-    public String addToCart(@RequestParam("itemId") String itemId, HttpSession session) {
-        cartService.addItemToCart(itemId, session);
+    public String addToCart(@RequestParam("itemId") String itemId,@RequestParam("image") String image,
+                            @RequestParam("title") String title,
+                            @RequestParam int quantity,@RequestParam float basePrice, HttpSession session) {
+        CartItem cartItem = new CartItem(itemId, quantity, basePrice,image,title);
+        List<CartItem> cart = (List<CartItem>) session.getAttribute("cart");
+        if (cart == null) {
+            cart = new ArrayList<>();
+        }
+        cart.add(cartItem);
+        session.setAttribute("cart", cart);
         return "redirect:/cart";
     }
 

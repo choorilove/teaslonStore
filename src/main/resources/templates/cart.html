@@ -15,17 +15,17 @@
         <p>Оформлюй швидше :)</p>
     </div>
 
-
-    <div class="itemsEmpty" th:if="${items.isEmpty()}">
+    <div class="itemsEmpty" th:if="${cart.isEmpty()}">
         <p>Ваш кошик порожній, але ви завжди можете це виправити :)</p>
         <a class="emptycarturl" href="/tea" >Обрати чай</a>
         <a class="emptycarturl" href="/posud">Обрати посуд</a>
     </div>
-    <div class="itemsEmpty" th:if="${!items.isEmpty()}">
+    <div class="itemsEmpty" th:if="${!cart.isEmpty()}">
+        <h2>Ваш кошик</h2>
         <div class="items">
-            <div class="item" th:each="el : ${items}" >
-                <a class="iturl" th:href="'/item/' + ${el.id}">
-                    <img th:src="@{${el.image1}}" th:alt="${el.title}">
+            <div class="item" th:each="el : ${cart}" >
+                <a class="iturl" th:href="'/item/' + ${el.itemId}">
+                    <img th:src="@{${el.image}}" th:alt="${el.title}">
                     <h3 th:text="${el.title}"/>
                     <span th:text="${el.price}"></span>
                 </a>

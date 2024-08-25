@@ -8,23 +8,24 @@
 </head>
 <body class="cartbody">
 <div th:replace="layouts/header :: header"></div>
+<div class="page-wrapper">
 <main>
     <div class="banner">
         <h2>Чайний Слон</h2>
         <p>Оформлюй швидше :)</p>
     </div>
 
-
-    <div class="itemsEmpty" th:if="${items.isEmpty()}">
+    <div class="itemsEmpty" th:if="${cart.isEmpty()}">
         <p>Ваш кошик порожній, але ви завжди можете це виправити :)</p>
         <a class="emptycarturl" href="/tea" >Обрати чай</a>
         <a class="emptycarturl" href="/posud">Обрати посуд</a>
     </div>
-    <div class="itemsEmpty" th:if="${!items.isEmpty()}">
+    <div class="itemsEmpty" th:if="${!cart.isEmpty()}">
+        <h2>Ваш кошик</h2>
         <div class="items">
-            <div class="item" th:each="el : ${items}" >
-                <a class="iturl" th:href="'/item/' + ${el.id}">
-                    <img th:src="@{${el.image1}}" th:alt="${el.title}">
+            <div class="item" th:each="el : ${cart}" >
+                <a class="iturl" th:href="'/item/' + ${el.itemId}">
+                    <img th:src="@{${el.image}}" th:alt="${el.title}">
                     <h3 th:text="${el.title}"/>
                     <span th:text="${el.price}"></span>
                 </a>
@@ -49,6 +50,16 @@
     </div>
 
 </main>
+    <section class="contact-info">
+        <div class="contact-container">
+            <h2>Контактна інформація</h2>
+            <p><strong>Телефон:</strong> +380 50 402 46 30</p>
+            <p><strong>Email:</strong> info@yourteashop.com</p>
+            <p><strong>Адреса:</strong> Сумський Ринок, місто-Герой Харків</p>
+            <p><strong>Години роботи:</strong> Пн-Нд: 9:00 - 18:00</p>
+        </div>
+    </section>
 <div th:replace="layouts/footer :: footer"></div>
+</div>
 </body>
 </html>
