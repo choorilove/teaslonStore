@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.ui.Model;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 @Controller
 public class CartControllerMain {
@@ -33,7 +35,11 @@ public class CartControllerMain {
                 totalAmount+= item.getPrice();
             }
         }
+        List<Item> itemprom = itemRepository.findAllSorted();
+        Map<String, List<Item>> itemsByProm = itemprom.stream()
+                .collect(Collectors.groupingBy(Item::getProm));
 
+        model.addAttribute("itemsByProm", itemsByProm);
         session.setMaxInactiveInterval(1800);
         model.addAttribute("cart", cart);
         model.addAttribute("totalAmount", totalAmount);

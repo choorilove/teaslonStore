@@ -11,14 +11,15 @@ public class Item {
 
     @Id@GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private String title, description, image1, image2, image3, sort, weight,manufacturer,year,province,fabric,volume;
+    private String title, description, image1, image2, image3, sort, weight,manufacturer,year,province,fabric,volume,prom;
     private float price;
+
 
     public Item() {}
 
     public Item(String title, String description, String image1, String image2, String image3,
                 String sort, String weight, String manufacturer,
-                String year, String province, String fabric, String volume, float price) {
+                String year, String province, String fabric, String volume, float price,String prom) {
         this.title = title;
         this.description = description;
         this.image1 = image1;
@@ -32,6 +33,15 @@ public class Item {
         this.fabric = fabric;
         this.volume = volume;
         this.price = price;
+        this.prom = prom;
+    }
+
+    public String getProm() {
+        return prom;
+    }
+
+    public void setProm(String prom) {
+        this.prom = prom;
     }
 
     public String getFabric() {

@@ -20,11 +20,11 @@
             А ви поки можете повернутись на <a href="/">Головну</a> або до <a href="/cart">Кошика</a> :)
         </h2>
     </div>
-    <div class="itemsEmpty" th:if="${itemsByCategory.isEmpty()}">
+    <div class="itemsEmpty" th:if="${itemsByProm.isEmpty()}">
         <p>Empty:(</p>
     </div>
-    <div class="itemsEmpty" th:if="${!itemsByCategory.isEmpty()}">
-        <div th:each="entry : ${itemsByCategory}">
+    <div class="itemsEmpty" th:if="${!itemsByProm.isEmpty()}">
+        <div th:each="entry : ${itemsByProm}">
             <div th:if="${entry.key.equals('Акції')}">
                 <h2 class="kinds" th:text="${entry.key}" > </h2>
                 <div class="items">
@@ -47,6 +47,7 @@
             </div>
         </div>
     </div>
+
     <section class="contact-info">
         <div class="contact-container">
             <h2>Контактна інформація</h2>

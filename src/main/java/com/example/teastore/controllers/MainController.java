@@ -23,8 +23,11 @@ public class MainController {
         List<Item> items = itemRepository.findAllSorted();
         Map<String, List<Item>> itemsByCategory = items.stream()
                 .collect(Collectors.groupingBy(Item::getSort));
+        Map<String, List<Item>> itemsByProm = items.stream()
+                .collect(Collectors.groupingBy(Item::getProm));
 
         model.addAttribute("itemsByCategory", itemsByCategory);
+        model.addAttribute("itemsByProm", itemsByProm);
         return "index";
     }
 
@@ -38,19 +41,21 @@ public class MainController {
         List<Item> items = itemRepository.findAllSorted();
         Map<String, List<Item>> itemsByCategory = items.stream()
                 .collect(Collectors.groupingBy(Item::getSort));
+        Map<String, List<Item>> itemsByProm = items.stream()
+                .collect(Collectors.groupingBy(Item::getProm));
 
         model.addAttribute("itemsByCategory", itemsByCategory);
-
+        model.addAttribute("itemsByProm", itemsByProm);
         return "thankyou";
     }
 
     @GetMapping("/item/{id}")
-    public String teaKind(@PathVariable("id") String id, Model model) {
+    public String itemShow(@PathVariable("id") String id, Model model) {
         List<Item> items = itemRepository.findAllSorted();
-        Map<String, List<Item>> itemsByCategory = items.stream()
-                .collect(Collectors.groupingBy(Item::getSort));
+        Map<String, List<Item>> itemsByProm = items.stream()
+                .collect(Collectors.groupingBy(Item::getProm));
 
-        model.addAttribute("itemsByCategory", itemsByCategory);
+        model.addAttribute("itemsByProm", itemsByProm);
         Item item = itemRepository.findById(Long.parseLong(id));
         model.addAttribute("current_item",item);
         model.addAttribute("itemId", id);

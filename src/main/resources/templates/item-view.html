@@ -50,7 +50,7 @@
         </div>
     </div>
 
-    <!-- Форма с выбором количества для неназначенных товаров -->
+
     <div th:if="${!current_item.sort.equals('Посуд')}">
         <div class="addtocart-container">
             <form th:action="@{/cart/add}" method="post" class="addtocartForm">
@@ -70,7 +70,6 @@
         </div>
     </div>
 
-    <!-- Форма без выбора количества для товаров категории "Посуд" -->
     <div th:if="${current_item.sort.equals('Посуд')}">
         <div class="addtocart-container">
             <form th:action="@{/cart/add}" method="post" class="addtocartForm">
@@ -84,19 +83,18 @@
         </div>
     </div>
 
-    <!-- Отображение товаров по категориям -->
-    <div class="itemsEmpty" th:if="${itemsByCategory.isEmpty()}">
+    <div class="itemsEmpty" th:if="${itemsByProm.isEmpty()}">
         <p>Empty:(</p>
     </div>
-    <div class="itemsEmpty" th:if="${!itemsByCategory.isEmpty()}">
-        <div th:each="entry : ${itemsByCategory}">
+    <div class="itemsEmpty" th:if="${!itemsByProm.isEmpty()}">
+        <div th:each="entry : ${itemsByProm}">
             <div th:if="${entry.key.equals('Акції')}">
-                <h2 class="kinds" th:text="${entry.key}"></h2>
+                <h2 class="kinds" th:text="${entry.key}" > </h2>
                 <div class="items">
-                    <div class="itemsell" th:each="el : ${entry.value}">
+                    <div class="itemsell" th:each="el : ${entry.value}" >
                         <a class="iturl" th:href="'/item/' + ${el.id}">
                             <img th:src="@{${el.image1}}" th:alt="${el.title}">
-                            <h3 th:text="${el.title}"></h3>
+                            <h3 th:text="${el.title}"/>
                             <span th:text="${el.price}"></span>
                         </a>
                         <form th:action="@{/cart/add}" method="post" class="addtocartform">
@@ -112,6 +110,7 @@
             </div>
         </div>
     </div>
+
 </main>
 
 <div th:replace="~{layouts/footer :: footer}"></div>
