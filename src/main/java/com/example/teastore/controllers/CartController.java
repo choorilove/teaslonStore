@@ -65,12 +65,11 @@ public class CartController {
         if (cart == null) {
             return "redirect:/cart";
         }else{
-            float price = 0;
+            float price = 0.0F;
             String id_items = " ";
             description="опис:" + description;
                 for (CartItem itemc : cart) {
-                    Item item = itemRepository.findById(Long.parseLong(itemc.getItemId()));
-                    price+= item.getPrice();
+                    price += itemc.getPrice();
                     id_items = itemc.getItemId() + " , " + id_items;
                     description = itemc.getTitle() + "-"+ itemc.getQuantity() +" ; "+ description;
                 }
