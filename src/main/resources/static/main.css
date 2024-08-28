@@ -161,17 +161,26 @@ margin-top: 20px;
 }
 
 
-.iturl{
+.iturl {
     display: flex;
     flex-direction: column;
-    padding: 10px;
+    padding-bottom: 5px;
     text-decoration: none;
     color:#EDEAE5;
+}
+
+.iturl > img {
+    margin: 0 0 5px;
+    border-radius: 10px 10px 0 0;
 }
 
 .iturl > * {
     margin: 5px 0;
     width: 100%;
+}
+
+.iturl > h3, .iturl > span, .iturl > form {
+    padding: 0 5px;
 }
 
 .iturl > *:last-child {
@@ -204,7 +213,6 @@ margin-top: 20px;
 }
 
 .addtocart {
-    width: 100%; /* Кнопка занимает всю ширину формы */
     padding: 10px;
     background-color: #026670;
     color: #EDEAE5;
