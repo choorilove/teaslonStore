@@ -149,7 +149,6 @@ margin-top: 20px;
 .item:hover{
     background-color:#536769;
     transform: translateY(-7px);
-    transform: scale(1.03);
     color:#004d40;
 }
 .itemsell:hover{
@@ -171,30 +170,18 @@ margin-top: 20px;
         border-radius: 10px;
 }
 .item{
-    position: relative;
-    flex: 0 1 calc(50% - 20px); /* 50% ширины с учетом отступов */
-    box-sizing: border-box;
-    background-color: #5a7071;
-    padding: 20px;
-    border-radius: 10px;
-    transition: transform 0.6s ease;
-    max-width: 100%; /* Гарантия, что товар займет всю доступную ширину */
-    text-align: center; /* Центрирование содержимого */
-}
-.item img {
-    width: 100%; /* Изображение занимает всю ширину товара */
-    height: auto;
-    border-radius: 10px;
-}
-.item h3 {
-    margin-top: 10px;
-    font-size: 1.5rem; /* Увеличение размера заголовка */
+        margin: 10px;
+        position: relative; /* Устанавливаем относительное позиционирование для родительского элемента */
+        box-sizing: border-box;
+        color: #EDEAE5;
+        background-color: #8AD5E0;
+        transition: transform 0.6s ease, color 500ms ease;
+        max-width:300px;
+        min-width: 150px;
+        width: 25%;
+        border-radius: 10px;
 }
 
-.item span {
-    font-size: 1.2rem; /* Размер текста для цены */
-    color: #EDEAE5;
-}
 
 .iturl{
     display: flex;
