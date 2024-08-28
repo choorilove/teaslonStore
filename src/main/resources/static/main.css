@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
+
+
 *{
     margin:0;
     padding:0;
@@ -211,22 +213,6 @@ margin-top: 20px;
     margin: 0;
 }
 
-@media screen and (max-width: 720px) {
-    .iturl > * {
-        font-size: 18px;
-    }
-    header {
-        height: 0;
-        margin: 0;
-    }
-    header > img {
-        display: none;
-    }
-    header > nav {
-        display: none;
-    }
-}
-
 .carousel {
     position: relative;
     width: 100%;
@@ -392,22 +378,47 @@ div.mobileMenu > a {
 }
 
 .showMenuIcon {
-    position: absolute;
+    display: none;
+    position: fixed;
     z-index: 11;
-    top: 10px;
-    right: 5px;
-    padding: 3px;
-    width: 15px;
-    background-color: #00ff00;
+    padding: 15px;
+    top: 0;
+    right: 0;
     cursor: pointer;
+}
+
+.showMenuIcon > div {
+    background-color: #EDEAE5;
+    margin: 2px 0;
+    padding: 1px;
+    width: 20px;
+    transition: background-color 0.2s ease-out, padding 0.2s ease-out, margin 0.2s ease-out, rotate 0.2s ease-out;
 }
 
 .mobileMenuController {
     display: none;
 }
 
-.mobileMenuController:checked + .mobileMenu {
+.mobileMenuController:checked ~ .mobileMenu {
     right: 0;
+}
+
+.mobileMenuController:checked ~ .showMenuIcon > div {
+    background-color: #5a7071;
+    margin: 0;
+}
+
+.mobileMenuController:checked ~ .showMenuIcon > div:nth-of-type(2) {
+    display: none;
+}
+
+.mobileMenuController:checked ~ .showMenuIcon > div:nth-of-type(1) {
+    rotate: 45deg;
+}
+
+.mobileMenuController:checked ~ .showMenuIcon > div:nth-of-type(3) {
+    rotate: -45deg;
+    margin: -2px 0 0;
 }
 
 .addtocartForm select {
@@ -475,4 +486,24 @@ div.mobileMenu > a {
 .notfull{
  flex-grow: 1;
  min-height: 90%;
+}
+
+@media screen and (max-width: 720px) {
+    .iturl > * {
+        font-size: 18px;
+    }
+    .showMenuIcon {
+        display: flex;
+        flex-direction: column;
+    }
+    header {
+        height: 0;
+        margin: 0;
+    }
+    header > img {
+        display: none;
+    }
+    header > nav {
+        display: none;
+    }
 }
