@@ -29,9 +29,9 @@
     <div class="itemsEmpty" th:if="${!itemsByProm.isEmpty()}">
         <div th:each="entry : ${itemsByProm}">
             <div th:if="${entry.key.equals('Акції')}">
-                <h2 class="kinds" th:text="${entry.key}" > </h2>
+                <a class="kinds" th:href="@{'/tea/' + ${entry.key}}" th:text="${entry.key}"> </a>
                 <div class="items">
-                    <div class="itemsell" th:each="el : ${entry.value}" >
+                    <div class="item" th:each="el : ${entry.value}" >
                         <a class="iturl" th:href="'/item/' + ${el.id}">
                             <img th:src="@{${el.image1}}" th:alt="${el.title}">
                             <h3 th:text="${el.title}"/>
@@ -42,16 +42,18 @@
                                 <input type="hidden" name="image" th:value="${el.image1}">
                                 <input type="hidden" name="title" th:value="${el.title}">
                                 <input type="hidden" name="quantity" value="50">
-                                <button type="submit" class="addtocart">Додати у кошик</button>
+                                <button type="submit" class="addtocart">
+                                    <img class="cartIcon" src="/images/cartIcon.png" alt="cart">
+                                </button>
                             </form>
                         </a>
                     </div>
                 </div>
             </div>
             <div th:if="${entry.key.equals('Цікавий чайок')}">
-                <h2 class="kinds" th:text="${entry.key}" > </h2>
+                <a class="kinds" th:href="@{'/tea/' + ${entry.key}}" th:text="${entry.key}"> </a>
                 <div class="items">
-                    <div class="itemsell" th:each="el : ${entry.value}" >
+                    <div class="item" th:each="el : ${entry.value}" >
                         <a class="iturl" th:href="'/item/' + ${el.id}">
                             <img th:src="@{${el.image1}}" th:alt="${el.title}">
                             <h3 th:text="${el.title}"/>
@@ -63,7 +65,9 @@
                             <input type="hidden" name="image" th:value="${el.image1}">
                             <input type="hidden" name="title" th:value="${el.title}">
                             <input type="hidden" name="quantity" value="50">
-                            <button type="submit" class="addtocart">Додати у кошик</button>
+                            <button type="submit" class="addtocart">
+                                <img class="cartIcon" src="/images/cartIcon.png" alt="cart">
+                            </button>
                         </form>
                     </div>
                 </div>

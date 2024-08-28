@@ -35,6 +35,9 @@ public class TeaController {
             List<Item> items = itemRepository.findAllSorted();
             Map<String, List<Item>> itemsByCategory = items.stream()
                     .collect(Collectors.groupingBy(Item::getSort));
+            Map<String, List<Item>> itemsByProm = items.stream()
+                    .collect(Collectors.groupingBy(Item::getProm));
+            model.addAttribute("itemsByProm", itemsByProm);
             model.addAttribute("itemsByCategory", itemsByCategory);
             model.addAttribute("selectedKey", key);
             return "kind";

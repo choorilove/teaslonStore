@@ -127,12 +127,7 @@ img.bnr{
     font-size: 25px;
 }
 
-.items1{
-margin-left: 20px;
-margin-right:20px;
-margin-bottom: 20px;
-margin-top: 20px;
-}
+
 
 .items{
         display: flex;
@@ -140,14 +135,14 @@ margin-top: 20px;
         justify-content: center; /* Центрирование товаров */
         box-sizing: border-box;
 }
-.itemsell:hover, .item:hover{
+.item:hover{
     background-color:#536769;
     transform: translateY(-7px);
     color:#004d40;
     box-shadow: black 2px 2px 5px 3px;
 }
 
-.itemsell, .item {
+.item {
         margin: 10px;
         position: relative; /* Устанавливаем относительное позиционирование для родительского элемента */
         box-sizing: border-box;
@@ -213,7 +208,12 @@ margin-top: 20px;
 }
 
 .addtocart {
-    padding: 10px;
+    width:80%;
+    margin-left:10%;
+    margin-right:10%;
+    padding-top: 10px;
+
+    padding-bottom:5xp;
     background-color: #026670;
     color: #EDEAE5;
     border: none;
@@ -432,7 +432,7 @@ div.mobileMenu > a {
     padding: 20px;
     border-radius: 10px;
     text-align: center;
-
+    margin-top:10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
 }
@@ -484,3 +484,10 @@ div.mobileMenu > a {
         display: none;
     }
 }
+
+.cartIcon{
+
+width:30px;
+height:30px;
+}
+
