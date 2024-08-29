@@ -466,6 +466,13 @@ div.mobileMenu > a {
 }
 
 @media screen and (max-width: 720px) {
+
+.addtocart {
+    width:40%;
+    margin-left:55%;
+    margin-right:5%;
+}
+
     .iturl > * {
         font-size: 18px;
     }
