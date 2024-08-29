@@ -28,12 +28,12 @@
                 <a class="iturl" th:href="'/item/' + ${el.itemId}">
                     <img th:src="@{${el.image}}" th:alt="${el.title}">
                     <h3 th:text="${el.title}"/>
-                    <span th:text="${el.price}"></span>
+                    <span th:text="${el.price} + ' грн'"></span>
                 </a>
             </div>
         </div>
         <div class="total-amount">
-            <h3>Загальна сума: <span th:text="${totalAmount}">0.00</span></h3>
+            <h3>   Загальна сума: <span th:text="${totalAmount} + ' грн'">0.00</span></h3>
         </div>
     </div>
 
@@ -63,7 +63,7 @@
                         <a class="iturl" th:href="'/item/' + ${el.id}">
                             <img th:src="@{${el.image1}}" th:alt="${el.title}">
                             <h3 th:text="${el.title}"/>
-                            <span th:text="${el.price}"></span>
+                            <span th:text="${el.price} + ' грн'"></span>
                         </a>
                         <form th:action="@{/cart/add}" method="post" class="addtocartform">
                             <input type="hidden" name="itemId" th:value="${el.id}">
