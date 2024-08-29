@@ -57,8 +57,25 @@
     <div class="itemsEmpty" th:if="${!itemsByProm.isEmpty()}">
         <div th:each="entry : ${itemsByProm}">
             <div th:if="${entry.key.equals('Також може сподобатись')}">
-                <h2 class="kinds" th:text="${entry.key}" > </h2>
+                <a class="kinds" th:href="@{'/tea/' + ${entry.key}}" th:text="${entry.key}"> </a>
                 <div class="items">
+                    <div class="item" th:each="el : ${entry.value}" th:if="${!el.sort.equals('Посуд')}">
+                        <a class="iturl" th:href="'/item/' + ${el.id}">
+                            <img th:src="@{${el.image1}}" th:alt="${el.title}">
+                            <h3 th:text="${el.title}"/>
+                            <span th:text="${el.price} + ' грн за 50г'"></span>
+                        </a>
+                        <form th:action="@{/cart/add}" method="post" class="addtocartform">
+                            <input type="hidden" name="itemId" th:value="${el.id}">
+                            <input type="hidden" name="basePrice" th:value="${el.price}">
+                            <input type="hidden" name="image" th:value="${el.image1}">
+                            <input type="hidden" name="title" th:value="${el.title}">
+                            <input type="hidden" name="quantity" value="50">
+                            <button type="submit" class="addtocart">
+                                <img class="cartIcon" src="/images/cartIcon.png" alt="cart">
+                            </button>
+                        </form>
+                    </div>
                     <div class="item" th:each="el : ${entry.value}" th:if="${el.sort.equals('Посуд')}">
                         <a class="iturl" th:href="'/item/' + ${el.id}">
                             <img th:src="@{${el.image1}}" th:alt="${el.title}">
@@ -76,25 +93,6 @@
                             </button>
                         </form>
                     </div>
-
-                    <div class="item" th:each="el : ${entry.value}" th:if="${!el.sort.equals('Посуд')}" >
-                        <a class="iturl" th:href="'/item/' + ${el.id}">
-                            <img th:src="@{${el.image1}}" th:alt="${el.title}">
-                            <h3 th:text="${el.title}"/>
-                            <span th:text="${el.price} + ' грн за 50г'"></span>
-                        </a>
-                        <form th:action="@{/cart/add}" method="post" class="addtocartform">
-                            <input type="hidden" name="itemId" th:value="${el.id}">
-                            <input type="hidden" name="basePrice" th:value="${el.price}">
-                            <input type="hidden" name="image" th:value="${el.image1}">
-                            <input type="hidden" name="title" th:value="${el.title}">
-                            <input type="hidden" name="quantity" value="50">
-                            <button type="submit" class="addtocart">
-                                <img class="cartIcon" src="/images/cartIcon.png" alt="cart">
-                            </button>
-                        </form>
-                    </div>
-
                 </div>
             </div>
         </div>
