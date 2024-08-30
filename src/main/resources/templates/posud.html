@@ -20,6 +20,7 @@
         <p>Empty:(</p>
     </div>
     <div class="itemsEmpty" th:if="${!itemsByCategory.isEmpty()}">
+
         <div th:each="entry : ${itemsByCategory}">
             <div th:if="${entry.key.equals('Посуд')}">
             <h2 class="kinds" th:text="${entry.key}" > </h2>
@@ -44,6 +45,7 @@
             </div>
         </div>
         </div>
+
     </div>
 </main>
 <div th:replace="~{layouts/footer :: footer}"></div>

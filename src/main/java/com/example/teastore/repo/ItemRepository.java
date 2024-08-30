@@ -11,4 +11,7 @@ public interface ItemRepository extends CrudRepository<Item, Long>{
 
         @Query("SELECT i FROM Item i ORDER BY i.sort")
         List<Item> findAllSorted();
+
+        List<Item> findByDescriptionContainingIgnoreCase(String description);
+;
 }
