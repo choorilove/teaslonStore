@@ -11,8 +11,16 @@
 <div th:replace="layouts/header :: header"></div>
 <main>
     <div class="banner">
+        <div>
         <h2>Чайний Слон</h2>
         <p>Завітай до мене :)</p>
+        </div>
+        <div class="search-block">
+        <form action="/search" method="GET">
+            <input class="searchInput" type="text" name="query" placeholder="Я шукаю">
+            <button class="searchBtn" type="submit">Знайти</button>
+        </form>
+        </div>
     </div>
     <div class="banner1">
 <h2>Хто такий чайний Слон?</h2>

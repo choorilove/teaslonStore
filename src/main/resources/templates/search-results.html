@@ -10,20 +10,24 @@
 <body>
 <div th:replace="~{layouts/header :: header}"></div>
 <div class="banner">
+    <div>
     <h2>Чайний Слон</h2>
     <p>Найкраща тиша в чаї, найкращий чай - в тиші</p>
-    <form action="/search" method="GET">
-        <input type="text" name="query" placeholder="Я шукаю">
-        <button type="submit">Найти</button>
-    </form>
+    </div>
+    <div class="search-block">
+        <form action="/search" method="GET">
+            <input class="searchInput" type="text" name="query" placeholder="Я шукаю">
+            <button class="searchBtn" type="submit">Знайти</button>
+        </form>
+    </div>
 
 </div>
 <div class="page-wrapper">
 <main>
-    <h2>Результаты поиска по запросу: <span th:text="${query}"></span></h2>
+    <h2>Результати пошуку: <span th:text="${query}"></span></h2>
 
     <div th:if="${searchResults.isEmpty()}">
-        <p>Ничего не найдено :(</p>
+        <p>Нічого не знайдено :(</p>
     </div>
 
     <div th:if="${!searchResults.isEmpty()}">

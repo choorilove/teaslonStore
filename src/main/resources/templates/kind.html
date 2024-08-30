@@ -12,8 +12,16 @@
 <div class="page-wrapper">
 <main>
     <div class="banner">
+        <div>
         <h2>Чайний Слон</h2>
-        <p>Не ви обираєте чайник - чайник обирає Вас</p>
+        <p>Не Ви обираєте чайник - чайник обирає Вас</p>
+        </div>
+        <div class="search-block">
+            <form action="/search" method="GET">
+                <input class="searchInput" type="text" name="query" placeholder="Я шукаю">
+                <button class="searchBtn" type="submit">Знайти</button>
+            </form>
+        </div>
     </div>
 
     <div class="itemsEmpty" th:if="${itemsByCategory.isEmpty()}">
