@@ -57,6 +57,7 @@ header {
 }
 
 .kinds{
+    text-decoration: none;
     width: 100%;
     text-align: center;
     font-weight: bold;
