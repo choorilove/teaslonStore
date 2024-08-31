@@ -99,8 +99,6 @@ img.bnr{
     width: 7%;
 }
 
-
-
 .banner{
     box-sizing: border-box;
     padding: 15px;
@@ -115,16 +113,6 @@ img.bnr{
         flex-direction: row; /* Располагаем дочерние элементы вертикально */
         align-items: center; /* Выравниваем дочерние элементы по левому краю */
         gap: 10px; /* Добавляем отступ между элементами */
-}
-.banner1{
-    box-sizing: border-box;
-    padding: 15px;
-    margin-right: 3%;
-    margin-bottom: 5%;
-    width: 100%;
-    height: 20%;
-    background-color: #EDEAE5;
-    color: #5a7071 ;
 }
 
 .itemsEmpty{
