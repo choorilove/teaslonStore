@@ -32,7 +32,7 @@
 
                     <div class="item" th:each="el : ${entry.value}" th:if="${el.sort.equals('Посуд')}">
                         <a class="iturl" th:href="'/item/' + ${el.id}">
-                            <img th:src="@{${el.image1}}" th:alt="${el.title}">
+                            <img th:src="@{${el.image1}}" th:alt="${el.title}" loading="lazy">
                             <h3 th:text="${el.title}"/>
                             <span th:text="${el.price} + ' грн'"></span>
                         </a>
@@ -50,7 +50,7 @@
 
                     <div class="item" th:each="el : ${entry.value}" th:if="${!el.sort.equals('Посуд')}">
                         <a class="iturl" th:href="'/item/' + ${el.id}">
-                            <img th:src="@{${el.image1}}" th:alt="${el.title}">
+                            <img th:src="@{${el.image1}}" th:alt="${el.title}" loading="lazy">
                             <h3 th:text="${el.title}"/>
                             <span th:text="${el.price} + ' грн за 50г'"></span>
                         </a>

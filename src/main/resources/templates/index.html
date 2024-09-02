@@ -26,9 +26,9 @@
 <main>
     <div class="carousel">
         <div class="carousel-images">
-            <a href="https://www.instagram.com/tea.slon.kharkiv?igsh=MWEzNXd3OWRybnkwag==" class="carousel-item"><img src="/images/main_banner.webp" alt="Image 1"></a>
-            <a href="https://www.instagram.com/tea.slon.kharkiv?igsh=MWEzNXd3OWRybnkwag==" class="carousel-item"><img src="/images/download.jpg" alt="Image 2"></a>
-            <a href="https://www.instagram.com/tea.slon.kharkiv?igsh=MWEzNXd3OWRybnkwag==" class="carousel-item"><img src="/images/images1.jpg" alt="Image 3"></a>
+            <a href="https://www.instagram.com/tea.slon.kharkiv?igsh=MWEzNXd3OWRybnkwag==" class="carousel-item"><img src="/images/main_banner.webp" alt="Image 1" loading="lazy"></a>
+            <a href="https://www.instagram.com/tea.slon.kharkiv?igsh=MWEzNXd3OWRybnkwag==" class="carousel-item"><img src="/images/download.jpg" alt="Image 2" loading="lazy"></a>
+            <a href="https://www.instagram.com/tea.slon.kharkiv?igsh=MWEzNXd3OWRybnkwag==" class="carousel-item"><img src="/images/images1.jpg" alt="Image 3" loading="lazy"></a>
         </div>
     </div>
 
@@ -42,7 +42,7 @@
                 <div class="items">
                     <div class="item" th:each="el : ${entry.value}" th:if="${!el.sort.equals('Посуд')}">
                         <a class="iturl" th:href="'/item/' + ${el.id}">
-                            <img th:src="@{${el.image1}}" th:alt="${el.title}">
+                            <img th:src="@{${el.image1}}" th:alt="${el.title}" loading="lazy">
                             <h3 th:text="${el.title}"/>
                             <span th:text="${el.price} + ' грн за 50г'"></span>
                         </a>
@@ -59,7 +59,7 @@
                     </div>
                     <div class="item" th:each="el : ${entry.value}" th:if="${el.sort.equals('Посуд')}">
                         <a class="iturl" th:href="'/item/' + ${el.id}">
-                            <img th:src="@{${el.image1}}" th:alt="${el.title}">
+                            <img th:src="@{${el.image1}}" th:alt="${el.title}" loading="lazy">
                             <h3 th:text="${el.title}"/>
                             <span th:text="${el.price} + ' грн'"></span>
                         </a>
@@ -82,7 +82,7 @@
                 <div class="items">
                     <div class="item" th:each="el : ${entry.value}" >
                         <a class="iturl" th:href="'/item/' + ${el.id}">
-                            <img th:src="@{${el.image1}}" th:alt="${el.title}">
+                            <img th:src="@{${el.image1}}" th:alt="${el.title}" loading="lazy">
                             <h3 th:text="${el.title}"/>
                             <span th:text="${el.price} + ' грн за 50г'"></span>
                         </a>
