@@ -61,5 +61,4 @@ public class MainController {
         model.addAttribute("itemId", id);
         return "item-view";
     }
-
 }
