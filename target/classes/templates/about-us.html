@@ -2,16 +2,25 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Про Нас</title>
     <link rel="stylesheet" th:href="@{main.css}">
-    <link rel="icon" href="https://img.freepik.com/free-vector/orange-background-with-elephant-for-indian-republic-day_23-2147588186.jpg" type="image/jpeg">
+    <link rel="icon" href="/images/logo.png" type="image/jpeg">
 </head>
 <body>
 <div th:replace="layouts/header :: header"></div>
 <main>
     <div class="banner">
+        <div>
         <h2>Чайний Слон</h2>
         <p>Завітай до мене :)</p>
+        </div>
+        <div class="search-block">
+        <form action="/search" method="GET">
+            <input class="searchInput" type="text" name="query" placeholder="Я шукаю">
+            <button class="searchBtn" type="submit">Знайти</button>
+        </form>
+        </div>
     </div>
     <div class="banner1">
 <h2>Хто такий чайний Слон?</h2>
@@ -27,9 +36,9 @@
 
     <div class="carousel">
         <div class="carousel-images">
-            <a href="https://www.instagram.com/tea.slon.kharkiv?igsh=MWEzNXd3OWRybnkwag==" class="carousel-item"><img src="/images/serg2.jpg" alt="Image 1"></a>
-            <a href="https://www.instagram.com/tea.slon.kharkiv?igsh=MWEzNXd3OWRybnkwag==" class="carousel-item"><img src="/images/arsen.jpg" alt="Image 2"></a>
-            <a href="https://www.instagram.com/tea.slon.kharkiv?igsh=MWEzNXd3OWRybnkwag==" class="carousel-item"><img src="/images/serg1.jpg" alt="Image 3"></a>
+            <a href="https://www.instagram.com/tea.slon.kharkiv?igsh=MWEzNXd3OWRybnkwag==" class="carousel-item"><img src="/images/serg2.jpg" alt="Image 1" loading="lazy"></a>
+            <a href="https://www.instagram.com/tea.slon.kharkiv?igsh=MWEzNXd3OWRybnkwag==" class="carousel-item"><img src="/images/arsen.jpg" alt="Image 2" loading="lazy"></a>
+            <a href="https://www.instagram.com/tea.slon.kharkiv?igsh=MWEzNXd3OWRybnkwag==" class="carousel-item"><img src="/images/serg1.jpg" alt="Image 3" loading="lazy"></a>
         </div>
     </div>
     <section class="contact-info">

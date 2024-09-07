@@ -2,15 +2,24 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Чай</title>
     <link rel="stylesheet" th:href="@{main.css}">
-    <link rel="icon" href="https://img.freepik.com/free-vector/orange-background-with-elephant-for-indian-republic-day_23-2147588186.jpg" type="image/jpeg">
+    <link rel="icon" href="/images/logo.png" type="image/jpeg">
 </head>
 <body>
 <div th:replace="~{layouts/header :: header}"></div>
 <div class="banner">
+    <div>
     <h2>Чайний Слон</h2>
     <p>Найкраща тиша в чаї, найкращий чай - в тиші</p>
+    </div>
+    <div class="search-block">
+        <form action="/search" method="GET">
+            <input class="searchInput" type="text" name="query" placeholder="Я шукаю">
+            <button class="searchBtn" type="submit">Знайти</button>
+        </form>
+    </div>
 </div>
 <main>
     <div class="itemsEmpty" th:if="${itemsByCategory.isEmpty()}">
@@ -18,15 +27,15 @@
     </div>
     <div class="itemsEmpty" th:if="${!itemsByCategory.isEmpty()}">
         <div th:each="entry : ${itemsByCategory}">
-            <div th:if="${!entry.key.equals('Посуд') && !entry.key.equals('Акції')}">
+            <div th:if="${!entry.key.equals('Посуд')}">
             <a class="kinds" th:href="@{'/tea/' + ${entry.key}}" th:text="${entry.key}"> </a>
             <div class="items">
                 <div class="item" th:each="el, iterStat : ${entry.value}" th:if="${iterStat.index < 2}">
 
                     <a class="iturl" th:href="'/item/' + ${el.id}">
-                        <img th:src="@{${el.image1}}" th:alt="${el.title}">
+                        <img th:src="@{${el.image1}}" th:alt="${el.title}" loading="lazy">
                         <h3 th:text="${el.title}"/>
-                        <span th:text="${el.price}"></span>
+                        <span th:text="${el.price} + ' грн за 50г'"></span>
                     </a>
                     <form th:action="@{/cart/add}" method="post" class="addtocartform">
                         <input type="hidden" name="itemId" th:value="${el.id}">
@@ -34,9 +43,12 @@
                         <input type="hidden" name="image" th:value="${el.image1}">
                         <input type="hidden" name="title" th:value="${el.title}">
                         <input type="hidden" name="quantity" value="50">
-                        <button type="submit" class="addtocart">Додати у кошик</button>
+                        <button type="submit" class="addtocart">
+                            <img class="cartIcon" src="/images/cartIcon.png" alt="cart">
+                        </button>
                     </form>
                 </div>
+                <a class="kinds" th:href="@{'/tea/' + ${entry.key}}" >Подивитись всі -></a>
                 </div>
             </div>
         </div>

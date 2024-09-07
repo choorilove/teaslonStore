@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
+
+
 *{
     margin:0;
     padding:0;
@@ -51,19 +53,18 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 1%;
-    margin-bottom: 1%;
-    margin-left: 3%;
-    margin-right: 3%;
+    margin: 10px 5px;
 }
 
 .kinds{
+    text-decoration: none;
+    width: 100%;
+    text-align: center;
     font-weight: bold;
     color:#026670;
     margin-top:20px;
     margin-bottom:10px;
-    transition: color 500ms ease;
-    transition: transform 0.6s ease;
+    transition: transform 0.6s ease, color 500ms ease;
     display: inline-block;
 }
 .kinds:hover{
@@ -98,27 +99,24 @@ img.bnr{
     width: 7%;
 }
 
-
-
 .banner{
     box-sizing: border-box;
-    padding-top:2%;
-    padding-bottom: 4%;
-    padding-left: 3%;
-    padding-right: 3%;
+    padding: 15px;
     margin-right: 3%;
     margin-bottom: 5%;
     width: 100%;
     height: 20%;
     background-color: #5a7071 ;
     color: #EDEAE5;
+
+     display: flex; /* Включаем flexbox */
+        flex-direction: row; /* Располагаем дочерние элементы вертикально */
+        align-items: center; /* Выравниваем дочерние элементы по левому краю */
+        gap: 10px; /* Добавляем отступ между элементами */
 }
 .banner1{
     box-sizing: border-box;
-    padding-top:2%;
-    padding-bottom: 4%;
-    padding-left: 3%;
-    padding-right: 3%;
+    padding: 15px;
     margin-right: 3%;
     margin-bottom: 5%;
     width: 100%;
@@ -128,94 +126,68 @@ img.bnr{
 }
 
 .itemsEmpty{
-    margin-bottom: 50px;
-    margin-left: 50px;
     color: #222;
     font-weight: 600;
     font-size: 25px;
 }
 
-.items1{
-margin-left: 20px;
-margin-right:20px;
-margin-bottom: 20px;
-margin-top: 20px;
-}
+
 
 .items{
         display: flex;
         flex-wrap: wrap;
-        gap: 20px; /* Отступы между элементами */
         justify-content: center; /* Центрирование товаров */
-        margin-right: 30px ; /* Центрирование контейнера и отступы сверху и снизу */
-        margin-left:10px;
-        margin-top:auto;
-        margin-bottom:auto;
-        padding-left: 10px; /* Добавление одинакового отступа слева и справа */
-        padding-right: 30px; /* Отступ справа */
-        max-width: calc(100% - 40px); /* Гарантирует, что контейнер не выйдет за пределы страницы */
         box-sizing: border-box;
 }
 .item:hover{
     background-color:#536769;
     transform: translateY(-7px);
-    transform: scale(1.03);
     color:#004d40;
-}
-.itemsell:hover{
-    background-color:#536769;
-    transform: translateY(-7px);
-    color:#004d40;
+    box-shadow:#5a7071 2px 2px 10px 5px;
 }
 
-.itemsell{
-
+.item {
+        margin: 10px;
         position: relative; /* Устанавливаем относительное позиционирование для родительского элемента */
         box-sizing: border-box;
-        flex: 1 1 calc(30% / 2 - 1rem); /* Используем относительные единицы для адаптивности */
         color: #EDEAE5;
-        padding: 1rem; /* Внутренние отступы для адаптивности */
-        border-radius: 1rem; /* Скругление углов */
-        background-color: #8AD5E0;
-        margin: 0.5rem; /* Отступы между элементами */
-        transition: color 500ms ease;
-        transition: transform 0.6s ease;
-        max-width:310px;
-}
-.item{
-    position: relative;
-    flex: 0 1 calc(50% - 20px); /* 50% ширины с учетом отступов */
-    box-sizing: border-box;
-    background-color: #5a7071;
-    padding: 20px;
-    border-radius: 10px;
-    transition: transform 0.6s ease;
-    max-width: 100%; /* Гарантия, что товар займет всю доступную ширину */
-    text-align: center; /* Центрирование содержимого */
-}
-.item img {
-    width: 100%; /* Изображение занимает всю ширину товара */
-    height: auto;
-    border-radius: 10px;
-}
-.item h3 {
-    margin-top: 10px;
-    font-size: 1.5rem; /* Увеличение размера заголовка */
-}
-
-.item span {
-    font-size: 1.2rem; /* Размер текста для цены */
-    color: #EDEAE5;
-}
-
-.iturl{
-     text-decoration: none;
-     color:#EDEAE5;
+        background-color: #5a7071;
+        transition: transform 0.6s ease, background-color 500ms ease, box-shadow 0.5s ease-out;
+        max-width:300px;
+        min-width: 150px;
+        width: 25%;
+        border-radius: 10px;
 }
 
 
+.iturl {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 5px;
+    text-decoration: none;
+    color:#EDEAE5;
+}
+
+.iturl > img {
+    margin: 0 0 5px;
+    border-radius: 10px 10px 0 0;
+}
+
+.iturl > * {
+    margin: 5px 0;
+    width: 100%;
+}
+
+.iturl > h3, .iturl > span, .iturl > form {
+    padding: 0 5px;
+}
+
+.iturl > *:last-child {
+    margin: 0;
+}
 
 .carousel {
+
     position: relative;
     width: 100%;
     overflow: hidden;
@@ -223,26 +195,36 @@ margin-top: 20px;
 }
 
 .carousel-images {
+
     display: flex;
     transition: transform 0.5s ease-in-out;
 }
 
 .carousel-item {
+    display: flex;
+    justify-content: center; /* Центрирование по горизонтали */
+    align-items: center;     /* Центрирование по вертикали */
     flex: 0 0 100%;
     box-sizing: border-box;
 }
 
 .carousel-item img {
+    height: 600px;
+    width: auto;
+    object-fit: cover;
     margin-left:10%;
     margin-right:10%;
-    width: 80%;
     display: block;
     border-radius: 10px;
 }
 
 .addtocart {
-    width: 100%; /* Кнопка занимает всю ширину формы */
-    padding: 10px;
+    width:40%;
+    margin-left:30%;
+    margin-right:30%;
+    padding-top: 10px;
+
+    padding-bottom:5px;
     background-color: #026670;
     color: #EDEAE5;
     border: none;
@@ -256,18 +238,14 @@ margin-top: 20px;
 }
 
 .addtocartform{
-    position: relative; /* Относительное позиционирование */
-    bottom: 0; /* Расположить форму снизу */
-    left: 0; /* Слева */
-    width: 100%; /* Сделать форму по ширине элемента */
-    text-align: center; /* Центрировать содержимое формы */
-    margin-top: 10px; /* Отступ сверху */
+    margin: 10px; /* Отступ сверху */
 }
 
 .cartform {
-    width: 50%;
+    width: 100%;
+    max-width: 720px;
+    min-width: 300px;
     background-color: #fff;
-    padding: 2rem;
     border-radius: 0.5rem;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     display: flex;
@@ -276,7 +254,7 @@ margin-top: 20px;
 
 .cartform input,
 .cartform button {
-    margin-bottom: 1.5rem;
+    margin: 15px;
     padding: 1rem;
     border-radius: 0.5rem;
     border: 1px solid #ccc;
@@ -313,6 +291,7 @@ margin-top: 20px;
 
 
 .icarousel {
+
     position: relative;
     width: 100%;
     overflow: hidden;
@@ -325,14 +304,19 @@ margin-top: 20px;
 }
 
 .icarousel-item {
+    display: flex;
+    justify-content: center; /* Центрирование по горизонтали */
+    align-items: center;     /* Центрирование по вертикали */
     flex: 0 0 100%;
     box-sizing: border-box;
 }
 
 .icarousel-item img {
-    margin-left:20%;
-    margin-right:20%;
-    width: 60%;
+    height: 600px;
+    width: auto;
+    object-fit: cover;
+    margin-left:10%;
+    margin-right:10%;
     display: block;
     border-radius: 10px;
 }
@@ -367,7 +351,69 @@ width:60%;
     display: block; /* Для центрирования `margin: auto` работает только на блочных элементах */
 }
 
+div.mobileMenu {
+    background-color: #EDEAE5;
+    text-align:center;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    z-index: 10;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    transition: right 0.3s ease-out;
+    box-shadow:#5a7071 2px 2px 10px 5px;
+}
 
+div.mobileMenu > a {
+    color:#5a7071 ;
+    text-decoration: none;
+    padding: 5px;
+}
+
+.showMenuIcon {
+    display: none;
+    position: fixed;
+    z-index: 11;
+    padding: 15px;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+}
+
+.showMenuIcon > div {
+    background-color: #EDEAE5;
+    margin: 2px 0;
+    padding: 1px;
+    width: 20px;
+    transition: background-color 0.2s ease-out, padding 0.2s ease-out, margin 0.2s ease-out, rotate 0.2s ease-out;
+}
+
+.mobileMenuController {
+    display: none;
+}
+
+.mobileMenuController:checked ~ .mobileMenu {
+    right: 0;
+}
+
+.mobileMenuController:checked ~ .showMenuIcon > div {
+    background-color: #5a7071;
+    margin: 0;
+}
+
+.mobileMenuController:checked ~ .showMenuIcon > div:nth-of-type(2) {
+    display: none;
+}
+
+.mobileMenuController:checked ~ .showMenuIcon > div:nth-of-type(1) {
+    rotate: 45deg;
+}
+
+.mobileMenuController:checked ~ .showMenuIcon > div:nth-of-type(3) {
+    rotate: -45deg;
+    margin: -2px 0 0;
+}
 
 .addtocartForm select {
     padding: 10px; /* Увеличение внутреннего отступа */
@@ -403,7 +449,7 @@ width:60%;
     padding: 20px;
     border-radius: 10px;
     text-align: center;
-
+    margin-top:10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
 }
@@ -435,3 +481,109 @@ width:60%;
  flex-grow: 1;
  min-height: 90%;
 }
+
+@media screen and (max-width: 720px) {
+
+    .carousel-item {
+        flex: 0 0 100%;
+        box-sizing: border-box;
+    }
+
+    .carousel-item img {
+        height:auto;
+        width: 80%;
+        object-fit: cover;
+        margin-left:10%;
+        margin-right:10%;
+        display: block;
+        border-radius: 10px;
+    }
+    .icarousel-item {
+
+        flex: 0 0 100%;
+        box-sizing: border-box;
+    }
+
+    .icarousel-item img {
+        height:auto;
+        width: 80%;
+        object-fit: cover;
+        margin-left:10%;
+        margin-right:10%;
+        display: block;
+        border-radius: 10px;
+    }
+
+.banner{
+    box-sizing: border-box;
+    padding: 15px;
+    margin-right: 3%;
+    margin-bottom: 5%;
+    width: 100%;
+    height: 20%;
+    background-color: #5a7071 ;
+    color: #EDEAE5;
+
+     display: flex; /* Включаем flexbox */
+        flex-direction: column; /* Располагаем дочерние элементы вертикально */
+        align-items: flex-start; /* Выравниваем дочерние элементы по левому краю */
+        gap: 10px; /* Добавляем отступ между элементами */
+}
+
+
+
+.addtocart {
+    width:40%;
+    margin-left:55%;
+    margin-right:5%;
+}
+
+    .iturl > * {
+        font-size: 18px;
+    }
+    .showMenuIcon {
+        display: flex;
+        flex-direction: column;
+    }
+    header {
+        height: 0;
+        margin: 0;
+    }
+    header > img {
+        display: none;
+    }
+    header > nav {
+        display: none;
+    }
+}
+
+.cartIcon{
+
+width:30px;
+height:30px;
+}
+
+.searchBtn {
+    background-color: #EDEAE5 ; /* Цвет фона кнопки */
+    color: #026670; /* Цвет текста кнопки */
+    border: none; /* Убираем границы кнопки */
+    padding: 12px; /* Увеличение внутреннего отступа кнопки */
+    border-radius: 5px; /* Скругление углов кнопки */
+    cursor: pointer; /* Изменяем указатель на курсор руки */
+    transition: transform 0.6s ease, background-color 0.3s ease; /* Плавные переходы */
+}
+.searchInput{
+
+        padding: 10px 15px; /* Внутренние отступы */
+        font-size: 16px; /* Размер текста */
+        border: 2px solid #cccccc; /* Цвет и толщина границы */
+        border-radius: 8px; /* Закругленные углы */
+        outline: none; /* Убираем стандартный outline при фокусе */
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.searchInput:hover{
+    border-color: #EDEAE5; /* Цвет границы при фокусе */
+    box-shadow: 0 0 10px rgba(62, 142, 208, 0.5); /* Тень при фокусе */
+    }
+

@@ -2,9 +2,10 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Помилка</title>
     <link rel="stylesheet" th:href="@{/main.css}">
-    <link rel="icon" href="https://img.freepik.com/free-vector/orange-background-with-elephant-for-indian-republic-day_23-2147588186.jpg" type="image/jpeg">
+    <link rel="icon" href="/images/logo.png" type="image/jpeg">
 </head>
 <body>
 <div th:replace="layouts/header :: header"></div>
@@ -19,6 +20,7 @@
             Але ви завжди можете повернутись на <a href="/">Головну</a> або до <a href="/cart">Кошика</a>
              </h5>
     </div>
+
     <section class="contact-info">
         <div class="contact-container">
             <h2>Контактна інформація</h2>
@@ -28,6 +30,7 @@
             <p><strong>Години роботи:</strong> Пн-Нд: 9:00 - 18:00</p>
         </div>
     </section>
+
 </main>
 <div th:replace="layouts/footer :: footer"></div>
 

@@ -187,6 +187,7 @@ img.bnr{
 }
 
 .carousel {
+
     position: relative;
     width: 100%;
     overflow: hidden;
@@ -194,19 +195,25 @@ img.bnr{
 }
 
 .carousel-images {
+
     display: flex;
     transition: transform 0.5s ease-in-out;
 }
 
 .carousel-item {
+    display: flex;
+    justify-content: center; /* Центрирование по горизонтали */
+    align-items: center;     /* Центрирование по вертикали */
     flex: 0 0 100%;
     box-sizing: border-box;
 }
 
 .carousel-item img {
+    height: 600px;
+    width: auto;
+    object-fit: cover;
     margin-left:10%;
     margin-right:10%;
-    width: 80%;
     display: block;
     border-radius: 10px;
 }
@@ -217,7 +224,7 @@ img.bnr{
     margin-right:30%;
     padding-top: 10px;
 
-    padding-bottom:5xp;
+    padding-bottom:5px;
     background-color: #026670;
     color: #EDEAE5;
     border: none;
@@ -284,6 +291,7 @@ img.bnr{
 
 
 .icarousel {
+
     position: relative;
     width: 100%;
     overflow: hidden;
@@ -296,14 +304,19 @@ img.bnr{
 }
 
 .icarousel-item {
+    display: flex;
+    justify-content: center; /* Центрирование по горизонтали */
+    align-items: center;     /* Центрирование по вертикали */
     flex: 0 0 100%;
     box-sizing: border-box;
 }
 
 .icarousel-item img {
-    margin-left:20%;
-    margin-right:20%;
-    width: 60%;
+    height: 600px;
+    width: auto;
+    object-fit: cover;
+    margin-left:10%;
+    margin-right:10%;
     display: block;
     border-radius: 10px;
 }
@@ -471,6 +484,35 @@ div.mobileMenu > a {
 
 @media screen and (max-width: 720px) {
 
+    .carousel-item {
+        flex: 0 0 100%;
+        box-sizing: border-box;
+    }
+
+    .carousel-item img {
+        height:auto;
+        width: 80%;
+        object-fit: cover;
+        margin-left:10%;
+        margin-right:10%;
+        display: block;
+        border-radius: 10px;
+    }
+    .icarousel-item {
+
+        flex: 0 0 100%;
+        box-sizing: border-box;
+    }
+
+    .icarousel-item img {
+        height:auto;
+        width: 80%;
+        object-fit: cover;
+        margin-left:10%;
+        margin-right:10%;
+        display: block;
+        border-radius: 10px;
+    }
 
 .banner{
     box-sizing: border-box;
