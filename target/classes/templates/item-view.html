@@ -13,8 +13,8 @@
 <main>
     <div class="banner">
         <div>
-        <h2 th:text="${current_item.title}">Чайний Слон</h2>
-        <p>Не ви обираєте чайник - чайник обирає Вас</p>
+            <h2 th:text="${current_item.title}">Чайний Слон</h2>
+            <p>Не ви обираєте чайник - чайник обирає Вас</p>
         </div>
         <div class="search-block">
             <form action="/search" method="GET">
@@ -26,19 +26,20 @@
 
     <div class="carousel">
         <div class="carousel-images">
-            <a href="https://www.instagram.com/tea.slon.kharkiv?igsh=MWEzNXd3OWRybnkwag==" class="carousel-item">
-                <img src="/images/mainbnr23.jpg" alt="Image 1" loading="lazy">
+            <a th:href="${current_item.image1}" class="carousel-item">
+                <img th:src="${current_item.image1}" alt="Image 1" loading="lazy">
             </a>
-            <a href="https://www.instagram.com/tea.slon.kharkiv?igsh=MWEzNXd3OWRybnkwag==" class="carousel-item">
-                <img src="/images/download.jpg" alt="Image 2" loading="lazy">
+            <a th:href="${current_item.image2}" class="carousel-item">
+                <img th:src="${current_item.image2}" alt="Image 2" loading="lazy">
             </a>
-            <a href="https://www.instagram.com/tea.slon.kharkiv?igsh=MWEzNXd3OWRybnkwag==" class="carousel-item">
-                <img src="/images/mainbnr11.jpg" alt="Image 3" loading="lazy">
+            <a th:href="${current_item.image3}" class="carousel-item">
+                <img th:src="${current_item.image3}" alt="Image 3" loading="lazy">
             </a>
         </div>
         <button class="carousel-btn prev"><</button>
         <button class="carousel-btn next">></button>
     </div>
+
 
     <div class="aboutItem">
         <h2 th:text="${current_item.title}">Чайний Слон</h2>
@@ -150,3 +151,5 @@
 <script src="/js/carousel.js"></script>
 </body>
 </html>
+
+
