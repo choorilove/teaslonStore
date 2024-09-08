@@ -1,15 +1,25 @@
-// carousel.js
 document.addEventListener('DOMContentLoaded', () => {
     const carouselImages = document.querySelector('.carousel-images');
     const items = document.querySelectorAll('.carousel-item');
     const itemCount = items.length;
     let index = 0;
 
-    function moveToNextSlide() {
-        index = (index + 1) % itemCount;
+    function moveToSlide(newIndex) {
+        index = (newIndex + itemCount) % itemCount;
         const offset = -index * 100;
         carouselImages.style.transform = `translateX(${offset}%)`;
     }
 
-    setInterval(moveToNextSlide, 3000); // Change image every 3 seconds
+    function moveToNextSlide() {
+        moveToSlide(index + 1);
+    }
+
+    function moveToPrevSlide() {
+        moveToSlide(index - 1);
+    }
+
+    document.querySelector('.next').addEventListener('click', moveToNextSlide);
+    document.querySelector('.prev').addEventListener('click', moveToPrevSlide);
+
+    setInterval(moveToNextSlide, 3000); // Автоматическая смена изображения каждые 3 секунды
 });
