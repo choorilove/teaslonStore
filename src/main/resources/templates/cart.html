@@ -38,6 +38,12 @@
                     <h3 th:text="${el.title}"/>
                     <span th:text="${el.price} + ' грн'"></span>
                 </a>
+                <form th:action="@{/cart/delete}" method="post" class="addtocartform">
+                    <input type="hidden" name="itemId" th:value="${el.itemId}">
+                    <button type="submit" class="addtocart">
+                        ⨯
+                    </button>
+                </form>
             </div>
         </div>
         <div class="total-amount">
