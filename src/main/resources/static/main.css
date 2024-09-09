@@ -108,11 +108,10 @@ img.bnr{
     height: 20%;
     background-color: #5a7071 ;
     color: #EDEAE5;
-
-     display: flex; /* Включаем flexbox */
-        flex-direction: row; /* Располагаем дочерние элементы вертикально */
-        align-items: center; /* Выравниваем дочерние элементы по левому краю */
-        gap: 10px; /* Добавляем отступ между элементами */
+    display: flex; /* Включаем flexbox */
+    flex-direction: row; /* Располагаем дочерние элементы вертикально */
+    align-items: center; /* Выравниваем дочерние элементы по левому краю */
+    gap: 10px; /* Добавляем отступ между элементами */
 }
 .banner1{
     box-sizing: border-box;
@@ -511,6 +510,19 @@ div.mobileMenu > a {
  min-height: 90%;
 }
 
+@media screen and (min-width: 720px) {
+    .search-block {
+        width: 50%;
+        display: flex;
+        justify-content: flex-end; /* Прижимаем содержимое к правому краю */
+        align-items: center; /* Выравниваем элементы по вертикали по центру */
+    }
+
+    .txtBnr {
+        width: 50%;
+    }
+}
+
 @media screen and (max-width: 720px) {
 
     .carousel-item {
@@ -587,7 +599,6 @@ div.mobileMenu > a {
 }
 
 .cartIcon{
-
 width:30px;
 height:30px;
 }
