@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title th:text="${current_item.title}">Товар</title>
+    <link rel="stylesheet" th:href="@{/main.css}">
+    <link rel="icon" href="/images/logo.png" type="image/jpeg">
+</head>
+<body>
+<div th:replace="~{layouts/header :: header}"></div>
+
+<main>
+    <div class="banner">
+        <div>
+            <h2 th:text="${current_item.title}">Чайний Слон</h2>
+            <p>Не ви обираєте чайник - чайник обирає Вас</p>
+        </div>
+        <div class="search-block">
+            <form action="/search" method="GET">
+                <input class="searchInput" type="text" name="query" placeholder="Я шукаю">
+                <button class="searchBtn" type="submit">Знайти</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="carousel">
+        <div class="carousel-images">
+            <a th:href="${current_item.image1}" class="carousel-item">
+                <img th:src="${current_item.image1}" alt="Image 1" loading="lazy">
+            </a>
+            <a th:href="${current_item.image2}" class="carousel-item">
+                <img th:src="${current_item.image2}" alt="Image 2" loading="lazy">
+            </a>
+            <a th:href="${current_item.image3}" class="carousel-item">
+                <img th:src="${current_item.image3}" alt="Image 3" loading="lazy">
+            </a>
+        </div>
+        <button class="carousel-btn prev"><</button>
+        <button class="carousel-btn next">></button>
+    </div>
+
+
+    <div class="aboutItem">
+        <h2 th:text="${current_item.title}">Чайний Слон</h2>
+        <div th:if="${!current_item.sort.equals('Посуд')}">
+            <h2>Характеристики</h2>
+            <p><strong>Вид:</strong></p><p th:text="${current_item.sort}">вид</p>
+            <p><strong>Рік виробництва:</strong></p><p th:text="${current_item.year}">рік</p>
+            <p><strong>Походження:</strong></p><p th:text="${current_item.province}">походження</p>
+            <p><strong>Виробник:</strong></p><p th:text="${current_item.manufacturer}">вид</p>
+            <p><strong>Вага:</strong></p><p th:text="${current_item.weight}">вид</p>
+            <p th:text="${current_item.description}"></p>
+        </div>
+        <div th:if="${current_item.sort.equals('Посуд')}">
+            <h2>Характеристики</h2>
+            <p><strong>Об'єм:</strong> <p th:text="${current_item.volume}">Об'єм</p></p>
+            <p><strong>Рік виробництва:</strong></p><p th:text="${current_item.year}">рік</p>
+            <p><strong>Походження:</strong></p><p th:text="${current_item.province}">походження</p>
+            <p><strong>Виробник:</strong></p><p th:text="${current_item.manufacturer}">вид</p>
+            <p th:text="${current_item.description}"></p>
+        </div>
+    </div>
+
+
+    <div th:if="${!current_item.sort.equals('Посуд')}">
+        <div class="addtocart-container">
+            <form th:action="@{/cart/add}" method="post" class="addtocartForm">
+                <input type="hidden" name="itemId" th:value="${current_item.id}">
+                <input type="hidden" name="basePrice" th:value="${current_item.price}">
+                <input type="hidden" name="image" th:value="${current_item.image1}">
+                <input type="hidden" name="title" th:value="${current_item.title}">
+                <input type="hidden" name="sort" th:value="${current_item.sort}">
+                <label for="quantity"></label>
+                <select name="quantity" id="quantity">
+                    <option value="25">25 грамів</option>
+                    <option value="50" selected>50 грамів</option>
+                    <option value="100">100 грамів</option>
+                    <option value="357">357 грамів</option>
+                </select>
+                <button type="submit" class="addtocartItem">Додати у кошик</button>
+            </form>
+        </div>
+    </div>
+
+    <div th:if="${current_item.sort.equals('Посуд')}">
+        <div class="addtocart-container">
+            <form th:action="@{/cart/add}" method="post" class="addtocartForm">
+                <input type="hidden" name="itemId" th:value="${current_item.id}">
+                <input type="hidden" name="basePrice" th:value="${current_item.price*50}">
+                <input type="hidden" name="image" th:value="${current_item.image1}">
+                <input type="hidden" name="title" th:value="${current_item.title}">
+                <input type="hidden" name="sort" th:value="${current_item.sort}">
+                <input type="hidden" name="quantity" value="1">
+                <button type="submit" class="addtocartItem">
+                    Додати у кошик
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <div class="itemsEmpty" th:if="${itemsByProm.isEmpty()}">
+        <p>Empty:(</p>
+    </div>
+    <div class="itemsEmpty" th:if="${!itemsByProm.isEmpty()}">
+        <div th:each="entry : ${itemsByProm}">
+            <div th:if="${entry.key.equals('Акції')}">
+                <h2 class="kinds" th:text="${entry.key}" > </h2>
+                <div class="items">
+                    <div class="item" th:each="el : ${entry.value}" th:if="${!el.sort.equals('Посуд')}">
+                        <a class="iturl" th:href="'/item/' + ${el.id}">
+                            <img th:src="@{${el.image1}}" th:alt="${el.title}" loading="lazy">
+                            <h3 th:text="${el.title}"/>
+                            <span th:text="${el.price} + ' грн за 50г'"></span>
+                        </a>
+                        <form th:action="@{/cart/add}" method="post" class="addtocartform">
+                            <input type="hidden" name="itemId" th:value="${el.id}">
+                            <input type="hidden" name="basePrice" th:value="${el.price}">
+                            <input type="hidden" name="image" th:value="${el.image1}">
+                            <input type="hidden" name="title" th:value="${el.title}">
+                            <input type="hidden" name="quantity" value="50">
+                            <button type="submit" class="addtocart">
+                                <img class="cartIcon" src="/images/cartIcon.png" alt="cart">
+                            </button>
+                        </form>
+                    </div>
+                    <div class="item" th:each="el : ${entry.value}" th:if="${el.sort.equals('Посуд')}">
+                        <a class="iturl" th:href="'/item/' + ${el.id}">
+                            <img th:src="@{${el.image1}}" th:alt="${el.title}" loading="lazy">
+                            <h3 th:text="${el.title}"/>
+                            <span th:text="${el.price} + ' грн'"></span>
+                        </a>
+                        <form th:action="@{/cart/add}" method="post" class="addtocartform">
+                            <input type="hidden" name="itemId" th:value="${el.id}">
+                            <input type="hidden" name="basePrice" th:value="${el.price}*50">
+                            <input type="hidden" name="image" th:value="${el.image1}">
+                            <input type="hidden" name="title" th:value="${el.title}">
+                            <input type="hidden" name="quantity" value="1">
+                            <button type="submit" class="addtocart">
+                                <img class="cartIcon" src="/images/cartIcon.png" alt="cart">
+                            </button>
+                        </form>
+                    </div>
+                    <a class="kinds" th:href="@{'/tea/' + ${entry.key}}" >Подивитись всі -></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+<div th:replace="~{layouts/footer :: footer}"></div>
+<script src="/js/carousel.js"></script>
+</body>
+</html>
+
+
