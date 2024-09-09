@@ -54,7 +54,7 @@
         </div>
         <div th:if="${current_item.sort.equals('Посуд')}">
             <h2>Характеристики</h2>
-            <p><strong>Об'єм:</strong></p><p th:text="${current_item.volume}">Об'єм</p>
+            <p><strong>Об'єм:</strong> <p th:text="${current_item.volume}">Об'єм</p></p>
             <p><strong>Рік виробництва:</strong></p><p th:text="${current_item.year}">рік</p>
             <p><strong>Походження:</strong></p><p th:text="${current_item.province}">походження</p>
             <p><strong>Виробник:</strong></p><p th:text="${current_item.manufacturer}">вид</p>
@@ -70,6 +70,7 @@
                 <input type="hidden" name="basePrice" th:value="${current_item.price}">
                 <input type="hidden" name="image" th:value="${current_item.image1}">
                 <input type="hidden" name="title" th:value="${current_item.title}">
+                <input type="hidden" name="sort" th:value="${current_item.sort}">
                 <label for="quantity"></label>
                 <select name="quantity" id="quantity">
                     <option value="25">25 грамів</option>
@@ -89,6 +90,7 @@
                 <input type="hidden" name="basePrice" th:value="${current_item.price*50}">
                 <input type="hidden" name="image" th:value="${current_item.image1}">
                 <input type="hidden" name="title" th:value="${current_item.title}">
+                <input type="hidden" name="sort" th:value="${current_item.sort}">
                 <input type="hidden" name="quantity" value="1">
                 <button type="submit" class="addtocartItem">
                     Додати у кошик

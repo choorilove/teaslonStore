@@ -1,11 +1,14 @@
 package com.example.teastore.models;
 
 public class CartItem {
-    private String itemId,image,title;
+    private String itemId,image,title,sort;
     private int quantity;
     private float price;
 
-    public CartItem(String itemId, int quantity, float basePrice,String image,String title) {
+    public CartItem(){}
+
+    public CartItem(String itemId, int quantity, float basePrice,String image,String title,String sort) {
+        this.sort = sort;
         this.itemId = itemId;
         this.quantity = quantity;
         this.price = calculatePrice(basePrice, quantity);
@@ -55,5 +58,13 @@ public class CartItem {
 
     public void setPrice(float price) {
         this.price = price;
+    }
+
+    public String getSort() {
+        return sort;
+    }
+
+    public void setSort(String sort) {
+        this.sort = sort;
     }
 }

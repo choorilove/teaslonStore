@@ -29,7 +29,6 @@ public class CartControllerMain {
             cart = new ArrayList<>();
         }
         float totalAmount = 0.0F;
-                List<Item> items = new ArrayList<>();
         if (cart != null) {
             for (CartItem item : cart) {
                 totalAmount+= item.getPrice();

@@ -40,15 +40,25 @@ public class CartController {
 
     @PostMapping("/add")
     public String addToCart(@RequestParam("itemId") String itemId,@RequestParam("image") String image,
-                            @RequestParam("title") String title,
+                            @RequestParam("title") String title,@RequestParam("sort") String sort,
                             @RequestParam int quantity,@RequestParam float basePrice, HttpSession session) {
-        CartItem cartItem = new CartItem(itemId, quantity, basePrice,image,title);
+        CartItem cartItem = new CartItem(itemId, quantity, basePrice,image,title,sort);
         List<CartItem> cart = (List<CartItem>) session.getAttribute("cart");
         if (cart == null) {
             cart = new ArrayList<>();
         }
         cart.add(cartItem);
         session.setAttribute("cart", cart);
+        return "redirect:/cart";
+    }
+
+    @PostMapping("/delete")
+    public String removeFromCart(@RequestParam("itemId") String itemId,HttpSession session){
+        List<CartItem> cart = (List<CartItem>) session.getAttribute("cart");
+        if (cart != null) {
+            cart.removeIf(item -> item.getItemId().equals(itemId));
+            session.setAttribute("cart", cart);
+        }
         return "redirect:/cart";
     }
 
