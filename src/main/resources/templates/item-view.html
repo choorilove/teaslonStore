@@ -63,7 +63,7 @@
     </div>
 
 
-    <div th:if="${!current_item.sort.equals('Посуд')}">
+    <div th:if="${!current_item.sort.equals('Посуд') && !current_item.prom.equals('Шт')}">
         <div class="addtocart-container">
             <form th:action="@{/cart/add}" method="post" class="addtocartForm">
                 <input type="hidden" name="itemId" th:value="${current_item.id}">
@@ -83,7 +83,7 @@
         </div>
     </div>
 
-    <div th:if="${current_item.sort.equals('Посуд')}">
+    <div th:if="${current_item.sort.equals('Посуд') || current_item.prom.equals('Шт')}">
         <div class="addtocart-container">
             <form th:action="@{/cart/add}" method="post" class="addtocartForm">
                 <input type="hidden" name="itemId" th:value="${current_item.id}">

@@ -59,7 +59,7 @@
             <div th:if="${entry.key.equals(selectedKey)}">
                 <h2 class="kinds" th:text="${entry.key}" > </h2>
                 <div class="items">
-                    <div class="item" th:each="el : ${entry.value}" th:if="${el.sort.equals('Посуд')}">
+                    <div class="item" th:each="el : ${entry.value}" th:if="${el.sort.equals('Посуд') || el.prom.equals('Шт')}">
                         <a class="iturl" th:href="'/item/' + ${el.id}">
                             <img th:src="@{${el.image1}}" th:alt="${el.title}" loading="lazy">
                             <h3 th:text="${el.title}"/>
@@ -78,7 +78,7 @@
                         </form>
                     </div>
 
-                    <div class="item" th:each="el : ${entry.value}" th:if="${!el.sort.equals('Посуд')}" >
+                    <div class="item" th:each="el : ${entry.value}" th:if="${!el.sort.equals('Посуд') || !el.prom.equals('Шт')}" >
                         <a class="iturl" th:href="'/item/' + ${el.id}">
                             <img th:src="@{${el.image1}}" th:alt="${el.title}" loading="lazy">
                             <h3 th:text="${el.title}"/>
