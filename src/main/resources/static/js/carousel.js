@@ -21,5 +21,5 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('.next').addEventListener('click', moveToNextSlide);
     document.querySelector('.prev').addEventListener('click', moveToPrevSlide);
 
-    setInterval(moveToNextSlide, 3000); // Автоматическая смена изображения каждые 3 секунды
+    setInterval(moveToNextSlide, 7000); // Автоматическая смена изображения каждые 3 секунды
 });
