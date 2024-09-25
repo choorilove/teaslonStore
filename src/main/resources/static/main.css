@@ -108,10 +108,10 @@ img.bnr{
     height: 20%;
     background-color: #5a7071 ;
     color: #EDEAE5;
-    display: flex; /* Включаем flexbox */
-    flex-direction: row; /* Располагаем дочерние элементы вертикально */
-    align-items: center; /* Выравниваем дочерние элементы по левому краю */
-    gap: 10px; /* Добавляем отступ между элементами */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
 }
 .banner1{
     box-sizing: border-box;
@@ -517,13 +517,31 @@ div.mobileMenu > a {
         justify-content: flex-end; /* Прижимаем содержимое к правому краю */
         align-items: center; /* Выравниваем элементы по вертикали по центру */
     }
-
+    .banner .logoBnr {
+        display: none;
+    }
     .txtBnr {
         width: 50%;
     }
 }
 
+
+
+
 @media screen and (max-width: 720px) {
+    .banner .txtBnr {
+        display: none;
+    }
+
+    .searchInput {
+        max-width:80%;
+    }
+    .banner .logoBnr {
+        max-width: 20%;
+    }
+    .banner .logoBnr img {
+        max-width: 50px;
+    }
 
     .carousel-item {
         flex: 0 0 100%;
@@ -564,11 +582,10 @@ div.mobileMenu > a {
     height: 20%;
     background-color: #5a7071 ;
     color: #EDEAE5;
-
-     display: flex; /* Включаем flexbox */
-        flex-direction: column; /* Располагаем дочерние элементы вертикально */
-        align-items: flex-start; /* Выравниваем дочерние элементы по левому краю */
-        gap: 10px; /* Добавляем отступ между элементами */
+     display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
 }
 
 
