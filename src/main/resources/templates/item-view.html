@@ -5,13 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title th:text="${current_item.title}">Товар</title>
     <link rel="stylesheet" th:href="@{/main.css}">
-    <link rel="icon" href="/images/logo.png" type="image/jpeg">
+    <link rel="icon" href="/images/logo.svg" type="image/jpeg">
 </head>
 <body>
 <div th:replace="~{layouts/header :: header}"></div>
 
 <main>
     <div class="banner">
+        <div class="logoBnr">
+            <img src="/images/logo.svg" alt="Logo">
+        </div>
         <div class="txtBnr">
             <h2 th:text="${current_item.title}">Чайний Слон</h2>
             <p>Не ви обираєте чайник - чайник обирає Вас</p>

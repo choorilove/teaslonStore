@@ -533,8 +533,10 @@ div.mobileMenu > a {
         display: none;
     }
 
+
+
     .searchInput {
-        max-width:80%;
+        max-width:70%;
     }
     .banner .logoBnr {
         max-width: 20%;
@@ -582,9 +584,9 @@ div.mobileMenu > a {
     height: 20%;
     background-color: #5a7071 ;
     color: #EDEAE5;
-     display: flex;
+    display: flex;
     flex-direction: column;
-    align-items: flex-start;
+
     gap: 10px;
 }
 
@@ -630,7 +632,6 @@ height:30px;
     transition: transform 0.6s ease, background-color 0.3s ease; /* Плавные переходы */
 }
 .searchInput{
-
         padding: 10px 15px; /* Внутренние отступы */
         font-size: 16px; /* Размер текста */
         border: 2px solid #cccccc; /* Цвет и толщина границы */
