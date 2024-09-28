@@ -55,7 +55,7 @@
                         <a class="iturl" th:href="'/item/' + ${el.id}">
                             <img th:src="@{${el.image1}}" th:alt="${el.title}" loading="lazy">
                             <h3 th:text="${el.title}"/>
-                            <span th:text="${el.price} + ' грн за 50г'"></span>
+                            <span th:utext="${el.price} + ' грн <br> за 50г'"></span>
                         </a>
                         <form th:action="@{/cart/add}" method="post" class="addtocartform">
                             <input type="hidden" name="itemId" th:value="${el.id}">
@@ -97,7 +97,7 @@
                         <a class="iturl" th:href="'/item/' + ${el.id}">
                             <img th:src="@{${el.image1}}" th:alt="${el.title}" loading="lazy">
                             <h3 th:text="${el.title}"/>
-                            <span th:text="${el.price} + ' грн за 50г'"></span>
+                            <span th:utext="${el.price} + ' грн <br> за 50г'"></span>
                         </a>
                         <form th:action="@{/cart/add}" method="post" class="addtocartform">
                             <input type="hidden" name="itemId" th:value="${el.id}">
