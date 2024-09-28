@@ -84,8 +84,8 @@
                     <div class="item" th:each="el : ${entry.value}" th:if="${!el.sort.equals('Посуд') || !el.prom.equals('Шт')}" >
                         <a class="iturl" th:href="'/item/' + ${el.id}">
                             <img th:src="@{${el.image1}}" th:alt="${el.title}" loading="lazy">
-                            <h3 th:text="${el.title}"/>
-                            <span th:utext="${el.price} + ' грн <br> за 50г'"></span>
+                            <h3 th:text="${el.title}" class="item-title"/>
+                            <span th:utext="${el.price} + ' грн <br> за 50г'" class="item-price"></span>
                         </a>
                         <form th:action="@{/cart/add}" method="post" class="addtocartform">
                             <input type="hidden" name="itemId" th:value="${el.id}">
