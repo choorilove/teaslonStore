@@ -599,7 +599,7 @@ div.mobileMenu > a {
 }
 
     .iturl > * {
-        font-size: 18px;
+        font-size: 15px;
     }
     .showMenuIcon {
         display: flex;
@@ -645,14 +645,4 @@ height:30px;
     box-shadow: 0 0 10px rgba(62, 142, 208, 0.5); /* Тень при фокусе */
     }
 
-.item-title {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #EDEAE5;
-    margin-bottom: 5px;
-}
 
-.item-price {
-    font-size: 1rem;
-    color: #EDEAE5;
-}
