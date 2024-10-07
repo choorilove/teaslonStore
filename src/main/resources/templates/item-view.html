@@ -74,6 +74,7 @@
                 <input type="hidden" name="image" th:value="${current_item.image1}">
                 <input type="hidden" name="title" th:value="${current_item.title}">
                 <input type="hidden" name="sort" th:value="${current_item.sort}">
+                <input type="hidden" name="prom" th:value="${current_item.prom}">
                 <label for="quantity"></label>
                 <select name="quantity" id="quantity">
                     <option value="25">25 грамів</option>
@@ -94,6 +95,7 @@
                 <input type="hidden" name="image" th:value="${current_item.image1}">
                 <input type="hidden" name="title" th:value="${current_item.title}">
                 <input type="hidden" name="sort" th:value="${current_item.sort}">
+                <input type="hidden" name="prom" th:value="${current_item.prom}">
                 <input type="hidden" name="quantity" value="1">
                 <button type="submit" class="addtocartItem">
                     Додати у кошик
@@ -122,6 +124,7 @@
                             <input type="hidden" name="image" th:value="${el.image1}">
                             <input type="hidden" name="title" th:value="${el.title}">
                             <input type="hidden" name="sort" th:value="${el.sort}">
+                            <input type="hidden" name="prom" th:value="${el.prom}">
                             <input type="hidden" name="quantity" value="50">
                             <button type="submit" class="addtocart">
                                 <img class="cartIcon" src="/images/cartIcon.png" alt="cart">
@@ -140,6 +143,7 @@
                             <input type="hidden" name="image" th:value="${el.image1}">
                             <input type="hidden" name="title" th:value="${el.title}">
                             <input type="hidden" name="sort" th:value="${el.sort}">
+                            <input type="hidden" name="prom" th:value="${el.prom}">
                             <input type="hidden" name="quantity" value="1">
                             <button type="submit" class="addtocart">
                                 <img class="cartIcon" src="/images/cartIcon.png" alt="cart">

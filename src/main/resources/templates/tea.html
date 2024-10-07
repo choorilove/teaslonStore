@@ -33,7 +33,7 @@
             <div th:if="${!entry.key.equals('Посуд')}">
             <a class="kinds" th:href="@{'/tea/' + ${entry.key}}" th:text="${entry.key}"> </a>
             <div class="items">
-                <div class="item" th:each="el, iterStat : ${entry.value}" th:if="${iterStat.index < 2}">
+                <div class="item" th:each="el, iterStat : ${entry.value}" th:if="${iterStat.index < 2}" >
 
                     <a class="iturl" th:href="'/item/' + ${el.id}">
                         <img th:src="@{${el.image1}}" th:alt="${el.title}" loading="lazy">
@@ -46,6 +46,7 @@
                         <input type="hidden" name="image" th:value="${el.image1}">
                         <input type="hidden" name="title" th:value="${el.title}">
                         <input type="hidden" name="sort" th:value="${el.sort}">
+                        <input type="hidden" name="prom" th:value="${el.prom}">
                         <input type="hidden" name="quantity" value="50">
                         <button type="submit" class="addtocart">
                             <img class="cartIcon" src="/images/cartIcon.png" alt="cart">

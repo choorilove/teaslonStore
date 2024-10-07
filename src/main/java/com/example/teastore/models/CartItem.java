@@ -1,19 +1,28 @@
 package com.example.teastore.models;
 
 public class CartItem {
-    private String itemId,image,title,sort;
+    private String itemId,image,title,sort,prom;
     private int quantity;
     private float price;
 
     public CartItem(){}
 
-    public CartItem(String itemId, int quantity, float basePrice,String image,String title,String sort) {
+    public CartItem(String itemId, int quantity, float basePrice,String image,String title,String sort,String prom) {
         this.sort = sort;
         this.itemId = itemId;
         this.quantity = quantity;
         this.price = calculatePrice(basePrice, quantity);
         this.image=image;
         this.title=title;
+        this.prom=prom;
+    }
+
+    public String getProm() {
+        return prom;
+    }
+
+    public void setProm(String prom) {
+        this.prom = prom;
     }
 
     public String getImage() {

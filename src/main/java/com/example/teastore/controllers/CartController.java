@@ -40,9 +40,10 @@ public class CartController {
 
     @PostMapping("/add")
     public String addToCart(@RequestParam("itemId") String itemId,@RequestParam("image") String image,
-                            @RequestParam("title") String title,@RequestParam("sort") String sort,
+                            @RequestParam("title") String title,@RequestParam("sort") String sort,@RequestParam("prom") String prom,
                             @RequestParam int quantity,@RequestParam float basePrice, HttpSession session) {
-        CartItem cartItem = new CartItem(itemId, quantity, basePrice,image,title,sort);
+
+        CartItem cartItem = new CartItem(itemId, quantity, basePrice,image,title,sort,prom);
         List<CartItem> cart = (List<CartItem>) session.getAttribute("cart");
         if (cart == null) {
             cart = new ArrayList<>();
