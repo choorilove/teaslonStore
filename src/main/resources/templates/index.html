@@ -49,7 +49,7 @@
     <div class="itemsEmpty" th:if="${!itemsByProm.isEmpty()}">
         <div th:each="entry : ${itemsByProm}">
             <div th:if="${entry.key.equals('Акції')}">
-                <a class="kinds" th:href="@{'/tea/' + ${entry.key}}" th:text="${entry.key}"> </a>
+                <a class="kindsProm" th:href="@{'/tea/' + ${entry.key}}" th:text="${entry.key}"> </a>
                 <div class="items">
                     <div class="item" th:each="el : ${entry.value}" th:if="${!el.sort.equals('Посуд') || !el.prom.equals('Шт')}">
                         <a class="iturl" th:href="'/item/' + ${el.id}">

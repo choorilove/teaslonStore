@@ -73,6 +73,24 @@ header {
     transform: scale(1.05);
 }
 
+.kindsProm{
+    text-decoration: none;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    color: #b53939;
+    margin-top:20px;
+    margin-bottom:10px;
+    transition: transform 0.6s ease;
+    display: inline-block;
+}
+.kindsProm:hover{
+
+    transform: translateY(-5px);
+
+}
+
+
 header nav a{
     transition: color 500ms ease;
     transition: transform 0.6s ease;
