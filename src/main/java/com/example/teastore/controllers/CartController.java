@@ -90,7 +90,7 @@ public class CartController {
             telegramNotificationService.sendOrderNotification("Нове замовлення: " + ordr.getId() +
                     " \nІм'я: " + ordr.getCustomer_name() + " " + ordr.getCustomer_surname() +
                     " \n Опис: " + ordr.getDescription() +
-                    " \n Номер телефону:" + ordr.getCustomer_number()
+                    " \n Номер телефону:" + ordr.getCustomer_number() +" \n Пошта:" + ordr.getPost_dep()
                     +" \n Сума:" + ordr.getPrice());
             session.invalidate();
             return "redirect:/thankyou";
